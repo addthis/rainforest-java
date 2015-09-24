@@ -1,0 +1,1 @@
+{"apiVersion":"1","swaggerVersion":"1.2","resourcePath":"/credit_cards","produces":["application/json"],"apis":[{"path":"/1/credit_cards.{format}","operations":[{"notes":"","summary":"Fetch the credit cards for the current account","nickname":"GET--version-credit_cards--json-","method":"GET","parameters":[],"type":"void"}]}],"basePath":"https://app.rainforestqa.com/api/"}
