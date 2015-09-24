@@ -1,0 +1,6 @@
+{
+  "modelPackage": "com.addthis.rainforest.api.model",
+  "apiPackage": "com.addthis.rainforest.api",
+  "invokerPackage": "com.addthis.rainforest.api.invoker",
+  "library": "jersey2"
+}
