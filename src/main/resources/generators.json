@@ -54,7 +54,10 @@
                             "name": "columns",
                             "paramType": "body",
                             "required": false,
-                            "type": "Array"
+                            "type": "array",
+                            "items": {
+                                "type": "object"
+                            }
                         },
                         {
                             "allowMultiple": false,
@@ -62,7 +65,10 @@
                             "name": "data",
                             "paramType": "body",
                             "required": false,
-                            "type": "Array"
+                            "type": "array",
+                            "items": {
+                                "type": "object"
+                            }
                         }
                     ],
                     "summary": "Add a generator",
@@ -125,7 +131,10 @@
                             "name": "columns",
                             "paramType": "body",
                             "required": false,
-                            "type": "Array"
+                            "type": "array",
+                            "items": {
+                                "type": "object"
+                            }
                         },
                         {
                             "allowMultiple": false,
@@ -133,9 +142,13 @@
                             "name": "data",
                             "paramType": "body",
                             "required": false,
-                            "type": "Array"
+                            "type": "array",
+                            "items": {
+                                "type": "object"
+                            }
                         }
                     ],
+                    "authorizations": { },
                     "summary": "Update a specific generator",
                     "type": "void"
                 },

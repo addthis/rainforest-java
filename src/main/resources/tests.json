@@ -40,7 +40,8 @@
                             "name": "sort",
                             "paramType": "query",
                             "required": false,
-                            "type": "Array"
+                            "type": "array",
+                            "items": { "type": "object" }
                         },
                         {
                             "allowMultiple": false,
@@ -56,7 +57,8 @@
                             "name": "tags",
                             "paramType": "query",
                             "required": false,
-                            "type": "Array"
+                            "type": "array",
+                            "items": { "type": "object" }
                         },
                         {
                             "allowMultiple": false,
@@ -140,7 +142,8 @@
                             "name": "options",
                             "paramType": "body",
                             "required": false,
-                            "type": "Array"
+                            "type": "array",
+                            "items": { "type": "object" }
                         },
                         {
                             "allowMultiple": false,
@@ -229,7 +232,8 @@
                             "name": "options",
                             "paramType": "query",
                             "required": false,
-                            "type": "Array"
+                            "type": "array",
+                            "items": { "type": "object" }
                         }
                     ],
                     "summary": "Get a test",
@@ -279,7 +283,8 @@
                             "name": "options",
                             "paramType": "body",
                             "required": false,
-                            "type": "Array"
+                            "type": "array",
+                            "items": { "type": "object" }
                         },
                         {
                             "allowMultiple": false,
@@ -287,7 +292,8 @@
                             "name": "tags",
                             "paramType": "body",
                             "required": false,
-                            "type": "Array"
+                            "type": "array",
+                            "items": { "type": "object" }
                         },
                         {
                             "allowMultiple": false,

@@ -22,7 +22,8 @@
                             "name": "repeat_rules",
                             "paramType": "body",
                             "required": true,
-                            "type": "Array"
+                            "type": "array",
+                            "items": { "type": "object" }
                         },
                         {
                             "allowMultiple": false,
@@ -94,7 +95,8 @@
                             "name": "repeat_rules",
                             "paramType": "body",
                             "required": true,
-                            "type": "Array"
+                            "type": "array",
+                            "items": { "type": "object" }
                         },
                         {
                             "allowMultiple": false,

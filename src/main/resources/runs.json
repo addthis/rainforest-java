@@ -49,7 +49,8 @@
                             "name": "browsers",
                             "paramType": "body",
                             "required": false,
-                            "type": "Array"
+                            "type": "array",
+                            "items": { "type": "object" }
                         },
                         {
                             "allowMultiple": false,
@@ -89,7 +90,8 @@
                             "name": "tags",
                             "paramType": "body",
                             "required": false,
-                            "type": "Array"
+                            "type": "array",
+                            "items": { "type": "object" }
                         },
                         {
                             "allowMultiple": false,
@@ -170,7 +172,8 @@
                             "name": "options",
                             "paramType": "query",
                             "required": false,
-                            "type": "Array"
+                            "type": "array",
+                            "items": { "type": "object" }
                         }
                     ],
                     "summary": "Get a specific run",
@@ -195,7 +198,8 @@
                             "name": "options",
                             "paramType": "query",
                             "required": false,
-                            "type": "Array"
+                            "type": "array",
+                            "items": { "type": "object" }
                         }
                     ],
                     "summary": "Abort a run",
@@ -225,7 +229,8 @@
                             "name": "options",
                             "paramType": "query",
                             "required": false,
-                            "type": "Array"
+                            "type": "array",
+                            "items": { "type": "object" }
                         },
                         {
                             "allowMultiple": false,
@@ -251,7 +256,8 @@
                             "name": "sort",
                             "paramType": "query",
                             "required": false,
-                            "type": "Array"
+                            "type": "array",
+                            "items": { "type": "object" }
                         },
                         {
                             "allowMultiple": false,
@@ -267,7 +273,8 @@
                             "name": "tags",
                             "paramType": "query",
                             "required": false,
-                            "type": "Array"
+                            "type": "array",
+                            "items": { "type": "object" }
                         },
                         {
                             "allowMultiple": false,
@@ -339,7 +346,8 @@
                             "name": "options",
                             "paramType": "query",
                             "required": false,
-                            "type": "Array"
+                            "type": "array",
+                            "items": { "type": "object" }
                         }
                     ],
                     "summary": "Get a specific test from a run",
