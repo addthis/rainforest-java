@@ -1,1 +1,24 @@
-{"apiVersion":"1","swaggerVersion":"1.2","resourcePath":"/credit_cards","produces":["application/json"],"apis":[{"path":"/1/credit_cards.{format}","operations":[{"notes":"","summary":"Fetch the credit cards for the current account","nickname":"GET--version-credit_cards--json-","method":"GET","parameters":[],"type":"void"}]}],"basePath":"https://app.rainforestqa.com/api/"}
+{
+    "apiVersion": "1",
+    "apis": [
+        {
+            "operations": [
+                {
+                    "method": "GET",
+                    "nickname": "GET--version-credit_cards--json-",
+                    "notes": "",
+                    "parameters": [],
+                    "summary": "Fetch the credit cards for the current account",
+                    "type": "void"
+                }
+            ],
+            "path": "/1/credit_cards.{format}"
+        }
+    ],
+    "basePath": "https://app.rainforestqa.com/api/",
+    "produces": [
+        "application/json"
+    ],
+    "resourcePath": "/credit_cards",
+    "swaggerVersion": "1.2"
+}

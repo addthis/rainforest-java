@@ -1,1 +1,183 @@
-{"apiVersion":"1","swaggerVersion":"1.2","resourcePath":"/users","produces":["application/json"],"apis":[{"path":"/1/users.{format}","operations":[{"notes":"","summary":"List users","nickname":"GET--version-users--json-","method":"GET","parameters":[],"type":"void"},{"notes":"","summary":"Invite a user to authenticated account","nickname":"POST--version-users--json-","method":"POST","parameters":[{"paramType":"form","name":"email","description":"The user's email","type":"string","required":true,"allowMultiple":false},{"paramType":"form","name":"name","description":"The name of the user","type":"string","required":false,"allowMultiple":false},{"paramType":"form","name":"password","description":"The password for this user","type":"string","required":false,"allowMultiple":false}],"type":"void"}]},{"path":"/1/users/reset_password.{format}","operations":[{"notes":"","summary":"Reset the password for an email","nickname":"POST--version-users-reset_password--json-","method":"POST","parameters":[{"paramType":"form","name":"email","description":"The email where to send the credentials","type":"string","required":true,"allowMultiple":false}],"type":"void"}]},{"path":"/1/users/{user_id}.{format}","operations":[{"notes":"","summary":"Get a user","nickname":"GET--version-users--user_id--json-","method":"GET","parameters":[{"paramType":"path","name":"user_id","description":"A user ID","type":"string","required":true,"allowMultiple":false}],"type":"void"},{"notes":"","summary":"Delete a user","nickname":"DELETE--version-users--user_id--json-","method":"DELETE","parameters":[{"paramType":"path","name":"user_id","description":"A user ID","type":"string","required":true,"allowMultiple":false}],"type":"void"},{"notes":"","summary":"Update a user","nickname":"PUT--version-users--user_id--json-","method":"PUT","parameters":[{"paramType":"path","name":"user_id","description":"A user ID","type":"string","required":true,"allowMultiple":false},{"paramType":"form","name":"email","description":"The user's email","type":"string","required":false,"allowMultiple":false},{"paramType":"form","name":"name","description":"The name of the user","type":"string","required":false,"allowMultiple":false},{"paramType":"form","name":"password","description":"The password for this user","type":"string","required":false,"allowMultiple":false},{"paramType":"form","name":"invite_token","description":"The invite token sent to the user on first invite. Must be present when setting the password for the first time.","type":"string","required":false,"allowMultiple":false},{"paramType":"form","name":"role","description":"We allow owners to relinquish ownership to another team member","type":"string","required":false,"allowMultiple":false},{"paramType":"form","name":"settings","description":"Arbitrary hash to store against the user","type":"object","required":false,"allowMultiple":false}],"type":"void"}]}],"basePath":"https://app.rainforestqa.com/api/"}
+{
+    "apiVersion": "1",
+    "apis": [
+        {
+            "operations": [
+                {
+                    "method": "GET",
+                    "nickname": "GET--version-users--json-",
+                    "notes": "",
+                    "parameters": [],
+                    "summary": "List users",
+                    "type": "void"
+                },
+                {
+                    "method": "POST",
+                    "nickname": "POST--version-users--json-",
+                    "notes": "",
+                    "parameters": [
+                        {
+                            "allowMultiple": false,
+                            "description": "The user's email",
+                            "name": "email",
+                            "paramType": "form",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "The name of the user",
+                            "name": "name",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "The password for this user",
+                            "name": "password",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        }
+                    ],
+                    "summary": "Invite a user to authenticated account",
+                    "type": "void"
+                }
+            ],
+            "path": "/1/users.{format}"
+        },
+        {
+            "operations": [
+                {
+                    "method": "POST",
+                    "nickname": "POST--version-users-reset_password--json-",
+                    "notes": "",
+                    "parameters": [
+                        {
+                            "allowMultiple": false,
+                            "description": "The email where to send the credentials",
+                            "name": "email",
+                            "paramType": "form",
+                            "required": true,
+                            "type": "string"
+                        }
+                    ],
+                    "summary": "Reset the password for an email",
+                    "type": "void"
+                }
+            ],
+            "path": "/1/users/reset_password.{format}"
+        },
+        {
+            "operations": [
+                {
+                    "method": "GET",
+                    "nickname": "GET--version-users--user_id--json-",
+                    "notes": "",
+                    "parameters": [
+                        {
+                            "allowMultiple": false,
+                            "description": "A user ID",
+                            "name": "user_id",
+                            "paramType": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    ],
+                    "summary": "Get a user",
+                    "type": "void"
+                },
+                {
+                    "method": "DELETE",
+                    "nickname": "DELETE--version-users--user_id--json-",
+                    "notes": "",
+                    "parameters": [
+                        {
+                            "allowMultiple": false,
+                            "description": "A user ID",
+                            "name": "user_id",
+                            "paramType": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    ],
+                    "summary": "Delete a user",
+                    "type": "void"
+                },
+                {
+                    "method": "PUT",
+                    "nickname": "PUT--version-users--user_id--json-",
+                    "notes": "",
+                    "parameters": [
+                        {
+                            "allowMultiple": false,
+                            "description": "A user ID",
+                            "name": "user_id",
+                            "paramType": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "The user's email",
+                            "name": "email",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "The name of the user",
+                            "name": "name",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "The password for this user",
+                            "name": "password",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "The invite token sent to the user on first invite. Must be present when setting the password for the first time.",
+                            "name": "invite_token",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "We allow owners to relinquish ownership to another team member",
+                            "name": "role",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Arbitrary hash to store against the user",
+                            "name": "settings",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "object"
+                        }
+                    ],
+                    "summary": "Update a user",
+                    "type": "void"
+                }
+            ],
+            "path": "/1/users/{user_id}.{format}"
+        }
+    ],
+    "basePath": "https://app.rainforestqa.com/api/",
+    "produces": [
+        "application/json"
+    ],
+    "resourcePath": "/users",
+    "swaggerVersion": "1.2"
+}

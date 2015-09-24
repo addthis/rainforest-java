@@ -1,1 +1,88 @@
-{"apiVersion":"1","swaggerVersion":"1.2","resourcePath":"/sites","produces":["application/json"],"apis":[{"path":"/1/sites.{format}","operations":[{"notes":"","summary":"List sites","nickname":"GET--version-sites--json-","method":"GET","parameters":[],"type":"void"},{"notes":"","summary":"Create a new site","nickname":"POST--version-sites--json-","method":"POST","parameters":[{"paramType":"form","name":"name","description":"The name of the new site","type":"string","required":true,"allowMultiple":false},{"paramType":"form","name":"default","description":"Set this site as the default","type":"boolean","required":false,"allowMultiple":false}],"type":"void"}]},{"path":"/1/sites/{site_id}.{format}","operations":[{"notes":"","summary":"Delete a site","nickname":"DELETE--version-sites--site_id--json-","method":"DELETE","parameters":[{"paramType":"path","name":"site_id","description":"A site ID","type":"string","required":true,"allowMultiple":false}],"type":"void"},{"notes":"","summary":"Update a site","nickname":"PUT--version-sites--site_id--json-","method":"PUT","parameters":[{"paramType":"path","name":"site_id","description":"A site ID","type":"string","required":true,"allowMultiple":false}],"type":"void"}]}],"basePath":"https://app.rainforestqa.com/api/"}
+{
+    "apiVersion": "1",
+    "apis": [
+        {
+            "operations": [
+                {
+                    "method": "GET",
+                    "nickname": "GET--version-sites--json-",
+                    "notes": "",
+                    "parameters": [],
+                    "summary": "List sites",
+                    "type": "void"
+                },
+                {
+                    "method": "POST",
+                    "nickname": "POST--version-sites--json-",
+                    "notes": "",
+                    "parameters": [
+                        {
+                            "allowMultiple": false,
+                            "description": "The name of the new site",
+                            "name": "name",
+                            "paramType": "form",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Set this site as the default",
+                            "name": "default",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "boolean"
+                        }
+                    ],
+                    "summary": "Create a new site",
+                    "type": "void"
+                }
+            ],
+            "path": "/1/sites.{format}"
+        },
+        {
+            "operations": [
+                {
+                    "method": "DELETE",
+                    "nickname": "DELETE--version-sites--site_id--json-",
+                    "notes": "",
+                    "parameters": [
+                        {
+                            "allowMultiple": false,
+                            "description": "A site ID",
+                            "name": "site_id",
+                            "paramType": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    ],
+                    "summary": "Delete a site",
+                    "type": "void"
+                },
+                {
+                    "method": "PUT",
+                    "nickname": "PUT--version-sites--site_id--json-",
+                    "notes": "",
+                    "parameters": [
+                        {
+                            "allowMultiple": false,
+                            "description": "A site ID",
+                            "name": "site_id",
+                            "paramType": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    ],
+                    "summary": "Update a site",
+                    "type": "void"
+                }
+            ],
+            "path": "/1/sites/{site_id}.{format}"
+        }
+    ],
+    "basePath": "https://app.rainforestqa.com/api/",
+    "produces": [
+        "application/json"
+    ],
+    "resourcePath": "/sites",
+    "swaggerVersion": "1.2"
+}

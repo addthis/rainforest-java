@@ -1,1 +1,46 @@
-{"apiVersion":"1","swaggerVersion":"1.2","resourcePath":"/site_environments","produces":["application/json"],"apis":[{"path":"/1/site_environments.{format}","operations":[{"notes":"","summary":"List sites and environments","nickname":"GET--version-site_environments--json-","method":"GET","parameters":[],"type":"void"}]},{"path":"/1/site_environments/{site_environment_id}.{format}","operations":[{"notes":"","summary":"Update a site environment","nickname":"PUT--version-site_environments--site_environment_id--json-","method":"PUT","parameters":[{"paramType":"path","name":"site_environment_id","description":"A site environment ID","type":"string","required":true,"allowMultiple":false}],"type":"void"}]}],"basePath":"https://app.rainforestqa.com/api/"}
+{
+    "apiVersion": "1",
+    "apis": [
+        {
+            "operations": [
+                {
+                    "method": "GET",
+                    "nickname": "GET--version-site_environments--json-",
+                    "notes": "",
+                    "parameters": [],
+                    "summary": "List sites and environments",
+                    "type": "void"
+                }
+            ],
+            "path": "/1/site_environments.{format}"
+        },
+        {
+            "operations": [
+                {
+                    "method": "PUT",
+                    "nickname": "PUT--version-site_environments--site_environment_id--json-",
+                    "notes": "",
+                    "parameters": [
+                        {
+                            "allowMultiple": false,
+                            "description": "A site environment ID",
+                            "name": "site_environment_id",
+                            "paramType": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    ],
+                    "summary": "Update a site environment",
+                    "type": "void"
+                }
+            ],
+            "path": "/1/site_environments/{site_environment_id}.{format}"
+        }
+    ],
+    "basePath": "https://app.rainforestqa.com/api/",
+    "produces": [
+        "application/json"
+    ],
+    "resourcePath": "/site_environments",
+    "swaggerVersion": "1.2"
+}

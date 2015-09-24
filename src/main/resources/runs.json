@@ -1,1 +1,358 @@
-{"apiVersion":"1","swaggerVersion":"1.2","resourcePath":"/runs","produces":["application/json"],"apis":[{"path":"/1/runs.{format}","operations":[{"notes":"","summary":"Get a list of all runs for a particular environment","nickname":"GET--version-runs--json-","method":"GET","parameters":[{"paramType":"query","name":"state","description":"Filter runs by their state. E.g. new, in_progress, complete","type":"string","required":false,"allowMultiple":false},{"paramType":"query","name":"page","description":"Page of results to display, starts from zero","type":"integer","required":false,"allowMultiple":false,"format":"int32"},{"paramType":"query","name":"page_size","description":"Number of runs to return per page. Defaults to 10 runs","type":"integer","required":false,"allowMultiple":false,"format":"int32"}],"type":"void"},{"notes":"","summary":"Start a new run for this particular environment.","nickname":"POST--version-runs--json-","method":"POST","parameters":[{"paramType":"body","name":"browsers","description":"An array of browsers to run this against, overrides the defaults","type":"Array","required":false,"allowMultiple":false},{"paramType":"form","name":"environment_id","description":"Use a specific environment for this run","type":"string","required":false,"allowMultiple":false},{"paramType":"form","name":"webhook","description":"HTTP webhook that we will POST notifications to. We expect a confirmation callback for before_test.","type":"string","required":false,"allowMultiple":false},{"paramType":"form","name":"conflict","description":"How should we handle current other runs that are in progress","type":"string","required":false,"allowMultiple":false},{"paramType":"form","name":"result","description":"Only run tests with a specific result","type":"string","required":false,"allowMultiple":false},{"paramType":"body","name":"tags","description":"Only run tests having all specified tags","type":"Array","required":false,"allowMultiple":false},{"paramType":"form","name":"site_id","description":"Only run tests for this specific site","type":"integer","required":false,"allowMultiple":false,"format":"int32"},{"paramType":"form","name":"query","description":"Only run tests matching this string","type":"string","required":false,"allowMultiple":false},{"paramType":"form","name":"tests","description":"Only run tests matching this criteria. Can be comma separated list of ids or an array of test ids. Optionally pass 'all' to run all tests in your account.","type":"string","required":false,"allowMultiple":false},{"paramType":"form","name":"smart_folder_id","description":"Only run tests matching smart folder criteria","type":"integer","required":false,"allowMultiple":false,"format":"int32"},{"paramType":"form","name":"run_id","description":"Only run tests that were part of that previous run","type":"integer","required":false,"allowMultiple":false,"format":"int32"},{"paramType":"form","name":"description","description":"An arbitrary string to associate with the run","type":"string","required":false,"allowMultiple":false}],"type":"void"}]},{"path":"/1/runs/{run_id}.{format}","operations":[{"notes":"","summary":"Get a specific run","nickname":"GET--version-runs--run_id--json-","method":"GET","parameters":[{"paramType":"path","name":"run_id","description":"A run ID","type":"string","required":true,"allowMultiple":false},{"paramType":"query","name":"options","description":"Extra details to display: steps, history","type":"Array","required":false,"allowMultiple":false}],"type":"void"},{"notes":"","summary":"Abort a run","nickname":"DELETE--version-runs--run_id--json-","method":"DELETE","parameters":[{"paramType":"path","name":"run_id","description":"A run ID","type":"string","required":true,"allowMultiple":false},{"paramType":"query","name":"options","description":"Extra details to display: steps, history","type":"Array","required":false,"allowMultiple":false}],"type":"void"}]},{"path":"/1/runs/{run_id}/tests.{format}","operations":[{"notes":"","summary":"List tests for a run","nickname":"GET--version-runs--run_id-tests--json-","method":"GET","parameters":[{"paramType":"path","name":"run_id","description":"A run ID","type":"string","required":true,"allowMultiple":false},{"paramType":"query","name":"options","description":"Extra details to display: steps, history","type":"Array","required":false,"allowMultiple":false},{"paramType":"query","name":"page","description":"Page of results to display, starts from zero","type":"integer","required":false,"allowMultiple":false,"format":"int32"},{"paramType":"query","name":"page_size","description":"Number of runs to return per page. Defaults to 10 runs","type":"integer","required":false,"allowMultiple":false,"format":"int32"},{"paramType":"query","name":"sort","description":"An array of sort options. Sortable columns are title. Format is [{\"col1\": \"ASC\"}]","type":"Array","required":false,"allowMultiple":false},{"paramType":"query","name":"result","description":"Only return tests with a specific result","type":"string","required":false,"allowMultiple":false},{"paramType":"query","name":"tags","description":"Only return tests having all specified tags","type":"Array","required":false,"allowMultiple":false},{"paramType":"query","name":"site_id","description":"Only return tests for this specific site","type":"integer","required":false,"allowMultiple":false,"format":"int32"},{"paramType":"query","name":"query","description":"Only return tests matching this string","type":"string","required":false,"allowMultiple":false},{"paramType":"query","name":"tests","description":"Only return tests matching this criteria. Can be comma separated list of ids or an array of test ids. Optionally pass 'all' to run all tests in your account.","type":"string","required":false,"allowMultiple":false},{"paramType":"query","name":"smart_folder_id","description":"Only return tests matching smart folder criteria","type":"integer","required":false,"allowMultiple":false,"format":"int32"}],"type":"void"}]},{"path":"/1/runs/{run_id}/tests/{test_id}.{format}","operations":[{"notes":"","summary":"Get a specific test from a run","nickname":"GET--version-runs--run_id-tests--test_id--json-","method":"GET","parameters":[{"paramType":"path","name":"run_id","description":"A run ID","type":"string","required":true,"allowMultiple":false},{"paramType":"path","name":"test_id","description":"A test ID","type":"string","required":true,"allowMultiple":false},{"paramType":"query","name":"options","description":"Extra details to display: steps, history","type":"Array","required":false,"allowMultiple":false}],"type":"void"}]}],"basePath":"https://app.rainforestqa.com/api/"}
+{
+    "apiVersion": "1",
+    "apis": [
+        {
+            "operations": [
+                {
+                    "method": "GET",
+                    "nickname": "GET--version-runs--json-",
+                    "notes": "",
+                    "parameters": [
+                        {
+                            "allowMultiple": false,
+                            "description": "Filter runs by their state. E.g. new, in_progress, complete",
+                            "name": "state",
+                            "paramType": "query",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Page of results to display, starts from zero",
+                            "format": "int32",
+                            "name": "page",
+                            "paramType": "query",
+                            "required": false,
+                            "type": "integer"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Number of runs to return per page. Defaults to 10 runs",
+                            "format": "int32",
+                            "name": "page_size",
+                            "paramType": "query",
+                            "required": false,
+                            "type": "integer"
+                        }
+                    ],
+                    "summary": "Get a list of all runs for a particular environment",
+                    "type": "void"
+                },
+                {
+                    "method": "POST",
+                    "nickname": "POST--version-runs--json-",
+                    "notes": "",
+                    "parameters": [
+                        {
+                            "allowMultiple": false,
+                            "description": "An array of browsers to run this against, overrides the defaults",
+                            "name": "browsers",
+                            "paramType": "body",
+                            "required": false,
+                            "type": "Array"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Use a specific environment for this run",
+                            "name": "environment_id",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "HTTP webhook that we will POST notifications to. We expect a confirmation callback for before_test.",
+                            "name": "webhook",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "How should we handle current other runs that are in progress",
+                            "name": "conflict",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only run tests with a specific result",
+                            "name": "result",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only run tests having all specified tags",
+                            "name": "tags",
+                            "paramType": "body",
+                            "required": false,
+                            "type": "Array"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only run tests for this specific site",
+                            "format": "int32",
+                            "name": "site_id",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "integer"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only run tests matching this string",
+                            "name": "query",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only run tests matching this criteria. Can be comma separated list of ids or an array of test ids. Optionally pass 'all' to run all tests in your account.",
+                            "name": "tests",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only run tests matching smart folder criteria",
+                            "format": "int32",
+                            "name": "smart_folder_id",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "integer"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only run tests that were part of that previous run",
+                            "format": "int32",
+                            "name": "run_id",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "integer"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "An arbitrary string to associate with the run",
+                            "name": "description",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        }
+                    ],
+                    "summary": "Start a new run for this particular environment.",
+                    "type": "void"
+                }
+            ],
+            "path": "/1/runs.{format}"
+        },
+        {
+            "operations": [
+                {
+                    "method": "GET",
+                    "nickname": "GET--version-runs--run_id--json-",
+                    "notes": "",
+                    "parameters": [
+                        {
+                            "allowMultiple": false,
+                            "description": "A run ID",
+                            "name": "run_id",
+                            "paramType": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Extra details to display: steps, history",
+                            "name": "options",
+                            "paramType": "query",
+                            "required": false,
+                            "type": "Array"
+                        }
+                    ],
+                    "summary": "Get a specific run",
+                    "type": "void"
+                },
+                {
+                    "method": "DELETE",
+                    "nickname": "DELETE--version-runs--run_id--json-",
+                    "notes": "",
+                    "parameters": [
+                        {
+                            "allowMultiple": false,
+                            "description": "A run ID",
+                            "name": "run_id",
+                            "paramType": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Extra details to display: steps, history",
+                            "name": "options",
+                            "paramType": "query",
+                            "required": false,
+                            "type": "Array"
+                        }
+                    ],
+                    "summary": "Abort a run",
+                    "type": "void"
+                }
+            ],
+            "path": "/1/runs/{run_id}.{format}"
+        },
+        {
+            "operations": [
+                {
+                    "method": "GET",
+                    "nickname": "GET--version-runs--run_id-tests--json-",
+                    "notes": "",
+                    "parameters": [
+                        {
+                            "allowMultiple": false,
+                            "description": "A run ID",
+                            "name": "run_id",
+                            "paramType": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Extra details to display: steps, history",
+                            "name": "options",
+                            "paramType": "query",
+                            "required": false,
+                            "type": "Array"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Page of results to display, starts from zero",
+                            "format": "int32",
+                            "name": "page",
+                            "paramType": "query",
+                            "required": false,
+                            "type": "integer"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Number of runs to return per page. Defaults to 10 runs",
+                            "format": "int32",
+                            "name": "page_size",
+                            "paramType": "query",
+                            "required": false,
+                            "type": "integer"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "An array of sort options. Sortable columns are title. Format is [{\"col1\": \"ASC\"}]",
+                            "name": "sort",
+                            "paramType": "query",
+                            "required": false,
+                            "type": "Array"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only return tests with a specific result",
+                            "name": "result",
+                            "paramType": "query",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only return tests having all specified tags",
+                            "name": "tags",
+                            "paramType": "query",
+                            "required": false,
+                            "type": "Array"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only return tests for this specific site",
+                            "format": "int32",
+                            "name": "site_id",
+                            "paramType": "query",
+                            "required": false,
+                            "type": "integer"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only return tests matching this string",
+                            "name": "query",
+                            "paramType": "query",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only return tests matching this criteria. Can be comma separated list of ids or an array of test ids. Optionally pass 'all' to run all tests in your account.",
+                            "name": "tests",
+                            "paramType": "query",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only return tests matching smart folder criteria",
+                            "format": "int32",
+                            "name": "smart_folder_id",
+                            "paramType": "query",
+                            "required": false,
+                            "type": "integer"
+                        }
+                    ],
+                    "summary": "List tests for a run",
+                    "type": "void"
+                }
+            ],
+            "path": "/1/runs/{run_id}/tests.{format}"
+        },
+        {
+            "operations": [
+                {
+                    "method": "GET",
+                    "nickname": "GET--version-runs--run_id-tests--test_id--json-",
+                    "notes": "",
+                    "parameters": [
+                        {
+                            "allowMultiple": false,
+                            "description": "A run ID",
+                            "name": "run_id",
+                            "paramType": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "A test ID",
+                            "name": "test_id",
+                            "paramType": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Extra details to display: steps, history",
+                            "name": "options",
+                            "paramType": "query",
+                            "required": false,
+                            "type": "Array"
+                        }
+                    ],
+                    "summary": "Get a specific test from a run",
+                    "type": "void"
+                }
+            ],
+            "path": "/1/runs/{run_id}/tests/{test_id}.{format}"
+        }
+    ],
+    "basePath": "https://app.rainforestqa.com/api/",
+    "produces": [
+        "application/json"
+    ],
+    "resourcePath": "/runs",
+    "swaggerVersion": "1.2"
+}

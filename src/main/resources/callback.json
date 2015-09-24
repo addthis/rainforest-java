@@ -1,1 +1,49 @@
-{"apiVersion":"1","swaggerVersion":"1.2","resourcePath":"/callback","produces":["application/json"],"apis":[{"path":"/1/callback/run/{run_id}/{callback_type}/{digest}.{format}","operations":[{"notes":"","summary":"Notify","nickname":"POST--version-callback-run--run_id--callback_type--digest--json-","method":"POST","parameters":[{"paramType":"path","name":"run_id","description":"The run id you are sending a callback for","type":"string","required":true,"allowMultiple":false},{"paramType":"path","name":"callback_type","description":"Callback type","type":"string","required":true,"allowMultiple":false},{"paramType":"path","name":"digest","description":"MD5-HMAC Digest created with Rainforest/Auth","type":"string","required":true,"allowMultiple":false}],"type":"void"}]}],"basePath":"https://app.rainforestqa.com/api/"}
+{
+    "apiVersion": "1",
+    "apis": [
+        {
+            "operations": [
+                {
+                    "method": "POST",
+                    "nickname": "POST--version-callback-run--run_id--callback_type--digest--json-",
+                    "notes": "",
+                    "parameters": [
+                        {
+                            "allowMultiple": false,
+                            "description": "The run id you are sending a callback for",
+                            "name": "run_id",
+                            "paramType": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Callback type",
+                            "name": "callback_type",
+                            "paramType": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "MD5-HMAC Digest created with Rainforest/Auth",
+                            "name": "digest",
+                            "paramType": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    ],
+                    "summary": "Notify",
+                    "type": "void"
+                }
+            ],
+            "path": "/1/callback/run/{run_id}/{callback_type}/{digest}.{format}"
+        }
+    ],
+    "basePath": "https://app.rainforestqa.com/api/",
+    "produces": [
+        "application/json"
+    ],
+    "resourcePath": "/callback",
+    "swaggerVersion": "1.2"
+}

@@ -1,1 +1,159 @@
-{"apiVersion":"1","swaggerVersion":"1.2","resourcePath":"/clients","produces":["application/json"],"apis":[{"path":"/1/clients.{format}","operations":[{"notes":"","summary":"Fetch your account details","nickname":"GET--version-clients--json-","method":"GET","parameters":[],"type":"void"},{"notes":"","summary":"Update account information","nickname":"PUT--version-clients--json-","method":"PUT","parameters":[{"paramType":"form","name":"password","description":"Password for authentication","type":"string","required":false,"allowMultiple":false},{"paramType":"form","name":"name","description":"Your name. Used in emails to you and the interface","type":"string","required":false,"allowMultiple":false},{"paramType":"form","name":"billing_email","description":"A dedicated billing email address","type":"string","required":false,"allowMultiple":false},{"paramType":"form","name":"settings","description":"A list of settings for the client interface","type":"object","required":false,"allowMultiple":false}],"type":"void"},{"notes":"","summary":"Sign up and create a new account","nickname":"POST--version-clients--json-","method":"POST","parameters":[{"paramType":"form","name":"email","description":"Email. Used for login and communication with you. Cannot be a duplicate","type":"string","required":true,"allowMultiple":false},{"paramType":"form","name":"password","description":"Password for authentication","type":"string","required":true,"allowMultiple":false},{"paramType":"form","name":"name","description":"Your Account name. Used in emails to you and the interface","type":"string","required":false,"allowMultiple":false},{"paramType":"form","name":"billing_email","description":"A dedicated billing email address","type":"string","required":false,"allowMultiple":false},{"paramType":"form","name":"user_name","description":"Your name. Used in emails to you and the interface","type":"string","required":false,"allowMultiple":false},{"paramType":"form","name":"phone","description":"Your phone number.","type":"string","required":false,"allowMultiple":false},{"paramType":"form","name":"source","description":"The source of the signup","type":"string","required":false,"allowMultiple":false},{"paramType":"form","name":"site_url","description":"The url of the site you wish to test","type":"string","required":false,"allowMultiple":false}],"type":"void"},{"notes":"","summary":"Sign up and create a new account","nickname":"DELETE--version-clients--json-","method":"DELETE","parameters":[],"type":"void"}]},{"path":"/1/clients/stats.{format}","operations":[{"notes":"","summary":"","nickname":"GET--version-clients-stats--json-","method":"GET","parameters":[],"type":"void"}]}],"basePath":"https://app.rainforestqa.com/api/"}
+{
+    "apiVersion": "1",
+    "apis": [
+        {
+            "operations": [
+                {
+                    "method": "GET",
+                    "nickname": "GET--version-clients--json-",
+                    "notes": "",
+                    "parameters": [],
+                    "summary": "Fetch your account details",
+                    "type": "void"
+                },
+                {
+                    "method": "PUT",
+                    "nickname": "PUT--version-clients--json-",
+                    "notes": "",
+                    "parameters": [
+                        {
+                            "allowMultiple": false,
+                            "description": "Password for authentication",
+                            "name": "password",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Your name. Used in emails to you and the interface",
+                            "name": "name",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "A dedicated billing email address",
+                            "name": "billing_email",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "A list of settings for the client interface",
+                            "name": "settings",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "object"
+                        }
+                    ],
+                    "summary": "Update account information",
+                    "type": "void"
+                },
+                {
+                    "method": "POST",
+                    "nickname": "POST--version-clients--json-",
+                    "notes": "",
+                    "parameters": [
+                        {
+                            "allowMultiple": false,
+                            "description": "Email. Used for login and communication with you. Cannot be a duplicate",
+                            "name": "email",
+                            "paramType": "form",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Password for authentication",
+                            "name": "password",
+                            "paramType": "form",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Your Account name. Used in emails to you and the interface",
+                            "name": "name",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "A dedicated billing email address",
+                            "name": "billing_email",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Your name. Used in emails to you and the interface",
+                            "name": "user_name",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Your phone number.",
+                            "name": "phone",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "The source of the signup",
+                            "name": "source",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "The url of the site you wish to test",
+                            "name": "site_url",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        }
+                    ],
+                    "summary": "Sign up and create a new account",
+                    "type": "void"
+                },
+                {
+                    "method": "DELETE",
+                    "nickname": "DELETE--version-clients--json-",
+                    "notes": "",
+                    "parameters": [],
+                    "summary": "Sign up and create a new account",
+                    "type": "void"
+                }
+            ],
+            "path": "/1/clients.{format}"
+        },
+        {
+            "operations": [
+                {
+                    "method": "GET",
+                    "nickname": "GET--version-clients-stats--json-",
+                    "notes": "",
+                    "parameters": [],
+                    "summary": "",
+                    "type": "void"
+                }
+            ],
+            "path": "/1/clients/stats.{format}"
+        }
+    ],
+    "basePath": "https://app.rainforestqa.com/api/",
+    "produces": [
+        "application/json"
+    ],
+    "resourcePath": "/clients",
+    "swaggerVersion": "1.2"
+}

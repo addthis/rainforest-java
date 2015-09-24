@@ -1,1 +1,70 @@
-{"apiVersion":"1","swaggerVersion":"1.2","produces":["application/json"],"apis":[{"path":"/schedules.{format}","description":"Operations about schedules"},{"path":"/sites.{format}","description":"Operations about sites"},{"path":"/site_environments.{format}","description":"Operations about site_environments"},{"path":"/tests.{format}","description":"Operations about tests"},{"path":"/users.{format}","description":"Operations about users"},{"path":"/integrations.{format}","description":"Operations about integrations"},{"path":"/callback.{format}","description":"Operations about callbacks"},{"path":"/clients.{format}","description":"Operations about clients"},{"path":"/credit_cards.{format}","description":"Operations about credit_cards"},{"path":"/environments.{format}","description":"Operations about environments"},{"path":"/generators.{format}","description":"Operations about generators"},{"path":"/pricing_plans.{format}","description":"Operations about pricing_plans"},{"path":"/vm_stack.{format}","description":"Operations about vm_stacks"},{"path":"/runs.{format}","description":"Operations about runs"},{"path":"/usage.{format}","description":"Operations about usages"}],"info":{}}
+{
+    "apiVersion": "1",
+    "apis": [
+        {
+            "description": "Operations about schedules",
+            "path": "/schedules.{format}"
+        },
+        {
+            "description": "Operations about sites",
+            "path": "/sites.{format}"
+        },
+        {
+            "description": "Operations about site_environments",
+            "path": "/site_environments.{format}"
+        },
+        {
+            "description": "Operations about tests",
+            "path": "/tests.{format}"
+        },
+        {
+            "description": "Operations about users",
+            "path": "/users.{format}"
+        },
+        {
+            "description": "Operations about integrations",
+            "path": "/integrations.{format}"
+        },
+        {
+            "description": "Operations about callbacks",
+            "path": "/callback.{format}"
+        },
+        {
+            "description": "Operations about clients",
+            "path": "/clients.{format}"
+        },
+        {
+            "description": "Operations about credit_cards",
+            "path": "/credit_cards.{format}"
+        },
+        {
+            "description": "Operations about environments",
+            "path": "/environments.{format}"
+        },
+        {
+            "description": "Operations about generators",
+            "path": "/generators.{format}"
+        },
+        {
+            "description": "Operations about pricing_plans",
+            "path": "/pricing_plans.{format}"
+        },
+        {
+            "description": "Operations about vm_stacks",
+            "path": "/vm_stack.{format}"
+        },
+        {
+            "description": "Operations about runs",
+            "path": "/runs.{format}"
+        },
+        {
+            "description": "Operations about usages",
+            "path": "/usage.{format}"
+        }
+    ],
+    "info": {},
+    "produces": [
+        "application/json"
+    ],
+    "swaggerVersion": "1.2"
+}

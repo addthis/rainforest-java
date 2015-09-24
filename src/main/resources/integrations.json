@@ -1,1 +1,105 @@
-{"apiVersion":"1","swaggerVersion":"1.2","resourcePath":"/integrations","produces":["application/json"],"apis":[{"path":"/1/integrations.{format}","operations":[{"notes":"","summary":"List all the integrations configured for your client.","nickname":"GET--version-integrations--json-","method":"GET","parameters":[],"type":"void"},{"notes":"","summary":"Configure a new integration.","nickname":"POST--version-integrations--json-","method":"POST","parameters":[{"paramType":"form","name":"type","description":"The type of integration, eg: hipchat","type":"string","required":true,"allowMultiple":false},{"paramType":"form","name":"settings","description":"The settings required by the integration, such as login and API token","type":"object","required":true,"allowMultiple":false}],"type":"void"}]},{"path":"/1/integrations/{id}.{format}","operations":[{"notes":"","summary":"Get details about a particular configured integration","nickname":"GET--version-integrations--id--json-","method":"GET","parameters":[{"paramType":"path","name":"id","description":null,"type":"integer","required":true,"allowMultiple":false,"format":"int32"}],"type":"void"},{"notes":"","summary":"Update the settings for an existing integration.","nickname":"PUT--version-integrations--id--json-","method":"PUT","parameters":[{"paramType":"path","name":"id","description":"","type":"string","required":false,"allowMultiple":false},{"paramType":"form","name":"settings","description":"The settings required by the integration, such as login and API token","type":"object","required":false,"allowMultiple":false},{"paramType":"form","name":"state","description":"Either \"enabled\" or \"disabled\". There is a 3rd state, \"errored\", if something went wrong when we tried to send the notification, set the state back to \"active\" for us to try again.","type":"string","required":false,"allowMultiple":false}],"type":"void"}]}],"basePath":"https://app.rainforestqa.com/api/"}
+{
+    "apiVersion": "1",
+    "apis": [
+        {
+            "operations": [
+                {
+                    "method": "GET",
+                    "nickname": "GET--version-integrations--json-",
+                    "notes": "",
+                    "parameters": [],
+                    "summary": "List all the integrations configured for your client.",
+                    "type": "void"
+                },
+                {
+                    "method": "POST",
+                    "nickname": "POST--version-integrations--json-",
+                    "notes": "",
+                    "parameters": [
+                        {
+                            "allowMultiple": false,
+                            "description": "The type of integration, eg: hipchat",
+                            "name": "type",
+                            "paramType": "form",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "The settings required by the integration, such as login and API token",
+                            "name": "settings",
+                            "paramType": "form",
+                            "required": true,
+                            "type": "object"
+                        }
+                    ],
+                    "summary": "Configure a new integration.",
+                    "type": "void"
+                }
+            ],
+            "path": "/1/integrations.{format}"
+        },
+        {
+            "operations": [
+                {
+                    "method": "GET",
+                    "nickname": "GET--version-integrations--id--json-",
+                    "notes": "",
+                    "parameters": [
+                        {
+                            "allowMultiple": false,
+                            "description": null,
+                            "format": "int32",
+                            "name": "id",
+                            "paramType": "path",
+                            "required": true,
+                            "type": "integer"
+                        }
+                    ],
+                    "summary": "Get details about a particular configured integration",
+                    "type": "void"
+                },
+                {
+                    "method": "PUT",
+                    "nickname": "PUT--version-integrations--id--json-",
+                    "notes": "",
+                    "parameters": [
+                        {
+                            "allowMultiple": false,
+                            "description": "",
+                            "name": "id",
+                            "paramType": "path",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "The settings required by the integration, such as login and API token",
+                            "name": "settings",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "object"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Either \"enabled\" or \"disabled\". There is a 3rd state, \"errored\", if something went wrong when we tried to send the notification, set the state back to \"active\" for us to try again.",
+                            "name": "state",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        }
+                    ],
+                    "summary": "Update the settings for an existing integration.",
+                    "type": "void"
+                }
+            ],
+            "path": "/1/integrations/{id}.{format}"
+        }
+    ],
+    "basePath": "https://app.rainforestqa.com/api/",
+    "produces": [
+        "application/json"
+    ],
+    "resourcePath": "/integrations",
+    "swaggerVersion": "1.2"
+}

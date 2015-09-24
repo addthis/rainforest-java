@@ -1,1 +1,183 @@
-{"apiVersion":"1","swaggerVersion":"1.2","resourcePath":"/environments","produces":["application/json"],"apis":[{"path":"/1/environments.{format}","operations":[{"notes":"","summary":"List environments","nickname":"GET--version-environments--json-","method":"GET","parameters":[],"type":"void"},{"notes":"","summary":"Create a new environment for this user","nickname":"POST--version-environments--json-","method":"POST","parameters":[{"paramType":"form","name":"name","description":"The name of the environment","type":"string","required":true,"allowMultiple":false},{"paramType":"form","name":"default","description":"Set this environment as the default","type":"boolean","required":false,"allowMultiple":false},{"paramType":"form","name":"webhook","description":"Default webhook for new runs","type":"string","required":false,"allowMultiple":false},{"paramType":"form","name":"webhook_enabled","description":"Use the webhook for new runs?","type":"string","required":false,"allowMultiple":false},{"paramType":"form","name":"url","description":"Default URL for this environment. You can update for each sites afterward.","type":"string","required":false,"allowMultiple":false}],"type":"void"}]},{"path":"/1/environments/{environment_id}.{format}","operations":[{"notes":"","summary":"Get a specific environment","nickname":"GET--version-environments--environment_id--json-","method":"GET","parameters":[{"paramType":"path","name":"environment_id","description":"An environment ID","type":"string","required":true,"allowMultiple":false}],"type":"void"},{"notes":"","summary":"Update an existing environment","nickname":"PUT--version-environments--environment_id--json-","method":"PUT","parameters":[{"paramType":"path","name":"environment_id","description":"An environment ID","type":"string","required":true,"allowMultiple":false},{"paramType":"form","name":"name","description":"The name of the environment","type":"string","required":false,"allowMultiple":false},{"paramType":"form","name":"default","description":"Set this environment as the default","type":"boolean","required":false,"allowMultiple":false},{"paramType":"form","name":"webhook","description":"Default webhook for new runs","type":"string","required":false,"allowMultiple":false},{"paramType":"form","name":"webhook_enabled","description":"Use the webhook for new runs?","type":"string","required":false,"allowMultiple":false}],"type":"void"},{"notes":"","summary":"Delete an environment","nickname":"DELETE--version-environments--environment_id--json-","method":"DELETE","parameters":[{"paramType":"path","name":"environment_id","description":"An environment ID","type":"string","required":true,"allowMultiple":false}],"type":"void"}]},{"path":"/1/environments/{environment_id}/runs.{format}","operations":[{"notes":"","summary":"List runs for an environment","nickname":"GET--version-environments--environment_id-runs--json-","method":"GET","parameters":[{"paramType":"path","name":"environment_id","description":"An environment ID","type":"string","required":true,"allowMultiple":false}],"type":"void"}]}],"basePath":"https://app.rainforestqa.com/api/"}
+{
+    "apiVersion": "1",
+    "apis": [
+        {
+            "operations": [
+                {
+                    "method": "GET",
+                    "nickname": "GET--version-environments--json-",
+                    "notes": "",
+                    "parameters": [],
+                    "summary": "List environments",
+                    "type": "void"
+                },
+                {
+                    "method": "POST",
+                    "nickname": "POST--version-environments--json-",
+                    "notes": "",
+                    "parameters": [
+                        {
+                            "allowMultiple": false,
+                            "description": "The name of the environment",
+                            "name": "name",
+                            "paramType": "form",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Set this environment as the default",
+                            "name": "default",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "boolean"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Default webhook for new runs",
+                            "name": "webhook",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Use the webhook for new runs?",
+                            "name": "webhook_enabled",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Default URL for this environment. You can update for each sites afterward.",
+                            "name": "url",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        }
+                    ],
+                    "summary": "Create a new environment for this user",
+                    "type": "void"
+                }
+            ],
+            "path": "/1/environments.{format}"
+        },
+        {
+            "operations": [
+                {
+                    "method": "GET",
+                    "nickname": "GET--version-environments--environment_id--json-",
+                    "notes": "",
+                    "parameters": [
+                        {
+                            "allowMultiple": false,
+                            "description": "An environment ID",
+                            "name": "environment_id",
+                            "paramType": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    ],
+                    "summary": "Get a specific environment",
+                    "type": "void"
+                },
+                {
+                    "method": "PUT",
+                    "nickname": "PUT--version-environments--environment_id--json-",
+                    "notes": "",
+                    "parameters": [
+                        {
+                            "allowMultiple": false,
+                            "description": "An environment ID",
+                            "name": "environment_id",
+                            "paramType": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "The name of the environment",
+                            "name": "name",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Set this environment as the default",
+                            "name": "default",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "boolean"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Default webhook for new runs",
+                            "name": "webhook",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Use the webhook for new runs?",
+                            "name": "webhook_enabled",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        }
+                    ],
+                    "summary": "Update an existing environment",
+                    "type": "void"
+                },
+                {
+                    "method": "DELETE",
+                    "nickname": "DELETE--version-environments--environment_id--json-",
+                    "notes": "",
+                    "parameters": [
+                        {
+                            "allowMultiple": false,
+                            "description": "An environment ID",
+                            "name": "environment_id",
+                            "paramType": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    ],
+                    "summary": "Delete an environment",
+                    "type": "void"
+                }
+            ],
+            "path": "/1/environments/{environment_id}.{format}"
+        },
+        {
+            "operations": [
+                {
+                    "method": "GET",
+                    "nickname": "GET--version-environments--environment_id-runs--json-",
+                    "notes": "",
+                    "parameters": [
+                        {
+                            "allowMultiple": false,
+                            "description": "An environment ID",
+                            "name": "environment_id",
+                            "paramType": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    ],
+                    "summary": "List runs for an environment",
+                    "type": "void"
+                }
+            ],
+            "path": "/1/environments/{environment_id}/runs.{format}"
+        }
+    ],
+    "basePath": "https://app.rainforestqa.com/api/",
+    "produces": [
+        "application/json"
+    ],
+    "resourcePath": "/environments",
+    "swaggerVersion": "1.2"
+}
