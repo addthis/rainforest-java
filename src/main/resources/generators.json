@@ -5,74 +5,31 @@
             "operations": [
                 {
                     "method": "GET",
-                    "nickname": "GET--version-generators--json-",
+                    "nickname": "listGenerators",
                     "notes": "",
                     "parameters": [],
                     "summary": "Retrieve a list of all available generators.",
-                    "type": "void"
+                    "type": "array",
+                    "items": {
+                        "$ref": "Generator"
+                    }
                 },
                 {
                     "method": "POST",
-                    "nickname": "POST--version-generators--json-",
+                    "nickname": "createGenerator",
                     "notes": "",
                     "parameters": [
-                        {
-                            "allowMultiple": false,
-                            "description": "Name of the new generator",
-                            "name": "name",
-                            "paramType": "form",
-                            "required": true,
-                            "type": "string"
-                        },
-                        {
-                            "allowMultiple": false,
-                            "description": "Description of the new generator",
-                            "name": "description",
-                            "paramType": "form",
-                            "required": true,
-                            "type": "string"
-                        },
-                        {
-                            "allowMultiple": false,
-                            "description": "Type of generator you want to create. It can be \"tabular\" or \"custom\". It defaults to \"test_data\"",
-                            "name": "generator_type",
-                            "paramType": "form",
-                            "required": false,
-                            "type": "string"
-                        },
-                        {
-                            "allowMultiple": false,
-                            "description": "Flag to designate whether each row is only used once. Defaults to \"false\". Only used for tabular variables.",
-                            "name": "single_use",
-                            "paramType": "form",
-                            "required": false,
-                            "type": "boolean"
-                        },
-                        {
-                            "allowMultiple": false,
-                            "description": "An array of column objects",
-                            "name": "columns",
-                            "paramType": "body",
-                            "required": false,
-                            "type": "array",
-                            "items": {
-                                "type": "object"
-                            }
-                        },
                         {
                             "allowMultiple": false,
                             "description": "Array of hash/object with data.",
                             "name": "data",
                             "paramType": "body",
                             "required": false,
-                            "type": "array",
-                            "items": {
-                                "type": "object"
-                            }
+                            "$ref": "Generator"
                         }
                     ],
                     "summary": "Add a generator",
-                    "type": "void"
+                    "$ref": "Generator"
                 }
             ],
             "path": "/1/generators.{format}"
@@ -148,13 +105,12 @@
                             }
                         }
                     ],
-                    "authorizations": { },
                     "summary": "Update a specific generator",
                     "type": "void"
                 },
                 {
                     "method": "DELETE",
-                    "nickname": "DELETE--version-generators--id--json-",
+                    "nickname": "deleteGeneratorById",
                     "notes": "",
                     "parameters": [
                         {
@@ -176,7 +132,7 @@
             "operations": [
                 {
                     "method": "POST",
-                    "nickname": "POST--version-generators--id-rows--json-",
+                    "nickname": "createRow",
                     "notes": "",
                     "parameters": [
                         {
@@ -191,9 +147,9 @@
                             "allowMultiple": false,
                             "description": "Generator instance data",
                             "name": "data",
-                            "paramType": "form",
+                            "paramType": "body",
                             "required": true,
-                            "type": "object"
+                            "$ref": "Row"
                         }
                     ],
                     "summary": "Create an instance of a generator",
@@ -313,5 +269,71 @@
         "application/json"
     ],
     "resourcePath": "/generators",
-    "swaggerVersion": "1.2"
+    "swaggerVersion": "1.2",
+    "models": {
+        "Generator": {
+            "id": "Generator",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "created_at": {
+                    "type": "date"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "generator_type": {
+                    "type": "string"
+                },
+                "row_count": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "generator_type": {
+                    "type": "string"
+                },
+                "single_use": {
+                    "type": "boolean"
+                },
+                "columns": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "Column"
+                    }
+                }
+            }
+        },
+        "Column": {
+            "id": "Column",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "created_at": {
+                    "type": "date"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "Row": {
+            "id": "Row",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "data": {
+                    "type": "object"
+                }
+            }
+        }
+    }
 }
