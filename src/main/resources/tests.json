@@ -5,7 +5,7 @@
             "operations": [
                 {
                     "method": "GET",
-                    "nickname": "GET--version-tests--json-",
+                    "nickname": "getTests",
                     "notes": "",
                     "parameters": [
                         {
@@ -41,7 +41,9 @@
                             "paramType": "query",
                             "required": false,
                             "type": "array",
-                            "items": { "type": "object" }
+                            "items": {
+                                "type": "object"
+                            }
                         },
                         {
                             "allowMultiple": false,
@@ -58,7 +60,9 @@
                             "paramType": "query",
                             "required": false,
                             "type": "array",
-                            "items": { "type": "object" }
+                            "items": {
+                                "type": "object"
+                            }
                         },
                         {
                             "allowMultiple": false,
@@ -96,11 +100,14 @@
                         }
                     ],
                     "summary": "Get tests for a client",
-                    "type": "void"
+                    "type": "array",
+                    "items": {
+                        "$ref": "Test"
+                    }
                 },
                 {
                     "method": "POST",
-                    "nickname": "POST--version-tests--json-",
+                    "nickname": "createTest",
                     "notes": "",
                     "parameters": [
                         {
@@ -143,7 +150,9 @@
                             "paramType": "body",
                             "required": false,
                             "type": "array",
-                            "items": { "type": "object" }
+                            "items": {
+                                "type": "object"
+                            }
                         },
                         {
                             "allowMultiple": false,
@@ -152,10 +161,21 @@
                             "paramType": "form",
                             "required": false,
                             "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Elements of the test",
+                            "name": "elements",
+                            "paramType": "body",
+                            "required": false,
+                            "type": "array",
+                            "items": {
+                                "type": "Element"
+                            }
                         }
                     ],
                     "summary": "Create a new test",
-                    "type": "void"
+                    "$ref": "Test"
                 },
                 {
                     "method": "DELETE",
@@ -214,7 +234,7 @@
             "operations": [
                 {
                     "method": "GET",
-                    "nickname": "GET--version-tests--test_id--json-",
+                    "nickname": "getTestById",
                     "notes": "",
                     "parameters": [
                         {
@@ -233,15 +253,17 @@
                             "paramType": "query",
                             "required": false,
                             "type": "array",
-                            "items": { "type": "object" }
+                            "items": {
+                                "type": "object"
+                            }
                         }
                     ],
                     "summary": "Get a test",
-                    "type": "void"
+                    "$ref": "Test"
                 },
                 {
                     "method": "PUT",
-                    "nickname": "PUT--version-tests--test_id--json-",
+                    "nickname": "updateTest",
                     "notes": "",
                     "parameters": [
                         {
@@ -284,7 +306,9 @@
                             "paramType": "body",
                             "required": false,
                             "type": "array",
-                            "items": { "type": "object" }
+                            "items": {
+                                "type": "object"
+                            }
                         },
                         {
                             "allowMultiple": false,
@@ -293,7 +317,9 @@
                             "paramType": "body",
                             "required": false,
                             "type": "array",
-                            "items": { "type": "object" }
+                            "items": {
+                                "type": "object"
+                            }
                         },
                         {
                             "allowMultiple": false,
@@ -311,14 +337,25 @@
                             "paramType": "form",
                             "required": false,
                             "type": "integer"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Elements of the test",
+                            "name": "elements",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "array",
+                            "items": {
+                                "type": "Element"
+                            }
                         }
                     ],
                     "summary": "Update a test",
-                    "type": "void"
+                    "$ref": "Test"
                 },
                 {
                     "method": "DELETE",
-                    "nickname": "DELETE--version-tests--test_id--json-",
+                    "nickname": "deleteTest",
                     "notes": "",
                     "parameters": [
                         {
@@ -384,5 +421,132 @@
         "application/json"
     ],
     "resourcePath": "/tests",
-    "swaggerVersion": "1.2"
+    "swaggerVersion": "1.2",
+    "models": {
+        "Test": {
+            "id": "Test",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "created_at": {
+                    "type": "date"
+                },
+                "test_id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "site_id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "string"
+                },
+                "start_uri": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "run_mode": {
+                    "type": "string"
+                },
+                "has_been_dry_run": {
+                    "type": "boolean"
+                },
+                "quality": {
+                    "type": "string"
+                },
+                "deleted": {
+                    "type": "boolean"
+                },
+                "deletable": {
+                    "type": "boolean"
+                },
+                "editable": {
+                    "type": "boolean"
+                },
+                "browsers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "Browser"
+                    }
+                },
+                "elements": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "Element"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "step_count": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "dry_run_url": {
+                    "type": "string"
+                },
+                "last_run": {
+                    "$ref": "Element"
+                }
+            }
+        },
+        "Browser": {
+            "id": "Browser",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "category": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                }
+            }
+        },
+        "Element": {
+            "id": "Element",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "created_at": {
+                    "type": "date"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "redirection": {
+                    "type": "boolean"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "action": {
+                    "type": "string"
+                },
+                "response": {
+                    "type": "string"
+                },
+                "element": {
+                    "$ref": "Element"
+                }
+            }
+        }
+    }
 }
