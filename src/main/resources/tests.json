@@ -112,66 +112,11 @@
                     "parameters": [
                         {
                             "allowMultiple": false,
-                            "description": "The ID of the site this test is for.",
-                            "format": "int32",
-                            "name": "site_id",
-                            "paramType": "form",
-                            "required": false,
-                            "type": "integer"
-                        },
-                        {
-                            "allowMultiple": false,
-                            "description": "The title of your test",
-                            "name": "title",
-                            "paramType": "form",
-                            "required": false,
-                            "type": "string"
-                        },
-                        {
-                            "allowMultiple": false,
-                            "description": "Where the test should start from; e.g. /login. Must start with a /",
-                            "name": "start_uri",
-                            "paramType": "form",
+                            "description": "The test to create",
+                            "name": "body",
+                            "paramType": "body",
                             "required": true,
-                            "type": "string"
-                        },
-                        {
-                            "allowMultiple": false,
-                            "description": "Optional text description of the test",
-                            "name": "description",
-                            "paramType": "form",
-                            "required": false,
-                            "type": "string"
-                        },
-                        {
-                            "allowMultiple": false,
-                            "description": "Extra details to display: steps",
-                            "name": "options",
-                            "paramType": "body",
-                            "required": false,
-                            "type": "array",
-                            "items": {
-                                "type": "object"
-                            }
-                        },
-                        {
-                            "allowMultiple": false,
-                            "description": "Either 'default' or 'sequential'. Defines if this test can be run in parallel.",
-                            "name": "run_mode",
-                            "paramType": "form",
-                            "required": false,
-                            "type": "string"
-                        },
-                        {
-                            "allowMultiple": false,
-                            "description": "Elements of the test",
-                            "name": "elements",
-                            "paramType": "body",
-                            "required": false,
-                            "type": "array",
-                            "items": {
-                                "type": "Element"
-                            }
+                            "$ref": "Test"
                         }
                     ],
                     "summary": "Create a new test",
@@ -277,77 +222,11 @@
                         },
                         {
                             "allowMultiple": false,
-                            "description": "The title of your test",
-                            "name": "title",
-                            "paramType": "form",
-                            "required": false,
-                            "type": "string"
-                        },
-                        {
-                            "allowMultiple": false,
-                            "description": "Where the test should start from; e.g. /login",
-                            "name": "start_uri",
-                            "paramType": "form",
-                            "required": false,
-                            "type": "string"
-                        },
-                        {
-                            "allowMultiple": false,
-                            "description": "Optional text description of the test",
-                            "name": "description",
-                            "paramType": "form",
-                            "required": false,
-                            "type": "string"
-                        },
-                        {
-                            "allowMultiple": false,
-                            "description": "Extra details to display: steps, history",
-                            "name": "options",
+                            "description": "The test to create",
+                            "name": "body",
                             "paramType": "body",
-                            "required": false,
-                            "type": "array",
-                            "items": {
-                                "type": "object"
-                            }
-                        },
-                        {
-                            "allowMultiple": false,
-                            "description": "Thing to tag this test with",
-                            "name": "tags",
-                            "paramType": "body",
-                            "required": false,
-                            "type": "array",
-                            "items": {
-                                "type": "object"
-                            }
-                        },
-                        {
-                            "allowMultiple": false,
-                            "description": "Either 'default' or 'sequential'. Defines if this test can be run in parallel.",
-                            "name": "run_mode",
-                            "paramType": "form",
-                            "required": false,
-                            "type": "string"
-                        },
-                        {
-                            "allowMultiple": false,
-                            "description": "The ID of the site this test is for.",
-                            "format": "int32",
-                            "name": "site_id",
-                            "paramType": "form",
-                            "required": false,
-                            "type": "integer"
-                        },
-                        {
-                            "allowMultiple": false,
-                            "description": "Elements of the test",
-                            "name": "elements",
-                            "paramType": "form",
-                            "required": false,
-                            "type": "array",
-                            "items": {
-                                "type": "Element"
-                            }
+                            "required": true,
+                            "$ref": "Test"
                         }
                     ],
                     "summary": "Update a test",
