@@ -7,7 +7,15 @@
                     "method": "GET",
                     "nickname": "GET--version-sites--json-",
                     "notes": "",
-                    "parameters": [],
+                    "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        }
+                    ],
                     "summary": "List sites",
                     "type": "void"
                 },
@@ -16,6 +24,13 @@
                     "nickname": "POST--version-sites--json-",
                     "notes": "",
                     "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
                         {
                             "allowMultiple": false,
                             "description": "The name of the new site",
@@ -33,7 +48,7 @@
                             "type": "boolean"
                         }
                     ],
-                    "summary": "Create a new site",
+                    "summary": "Create a new site - creates corresponding site-environments for each environment as well",
                     "type": "void"
                 }
             ],
@@ -42,10 +57,60 @@
         {
             "operations": [
                 {
+                    "method": "PUT",
+                    "nickname": "PUT--version-sites--site_id--json-",
+                    "notes": "",
+                    "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "A site ID",
+                            "name": "site_id",
+                            "paramType": "path",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "New name of site",
+                            "name": "name",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Set this site as default if true and set current default site to false. Cannot be false.",
+                            "enum": [
+                                true
+                            ],
+                            "name": "default",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "boolean"
+                        }
+                    ],
+                    "summary": "Update a site",
+                    "type": "void"
+                },
+                {
                     "method": "DELETE",
                     "nickname": "DELETE--version-sites--site_id--json-",
                     "notes": "",
                     "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
                         {
                             "allowMultiple": false,
                             "description": "A site ID",
@@ -57,29 +122,12 @@
                     ],
                     "summary": "Delete a site",
                     "type": "void"
-                },
-                {
-                    "method": "PUT",
-                    "nickname": "PUT--version-sites--site_id--json-",
-                    "notes": "",
-                    "parameters": [
-                        {
-                            "allowMultiple": false,
-                            "description": "A site ID",
-                            "name": "site_id",
-                            "paramType": "path",
-                            "required": true,
-                            "type": "string"
-                        }
-                    ],
-                    "summary": "Update a site",
-                    "type": "void"
                 }
             ],
             "path": "/1/sites/{site_id}.{format}"
         }
     ],
-    "basePath": "https://app.rainforestqa.com/api/",
+    "basePath": "https://app.rainforestqa.com/api",
     "produces": [
         "application/json"
     ],

@@ -7,7 +7,15 @@
                     "method": "GET",
                     "nickname": "GET--version-environments--json-",
                     "notes": "",
-                    "parameters": [],
+                    "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        }
+                    ],
                     "summary": "List environments",
                     "type": "void"
                 },
@@ -16,6 +24,13 @@
                     "nickname": "POST--version-environments--json-",
                     "notes": "",
                     "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
                         {
                             "allowMultiple": false,
                             "description": "The name of the environment",
@@ -26,15 +41,7 @@
                         },
                         {
                             "allowMultiple": false,
-                            "description": "Set this environment as the default",
-                            "name": "default",
-                            "paramType": "form",
-                            "required": false,
-                            "type": "boolean"
-                        },
-                        {
-                            "allowMultiple": false,
-                            "description": "Default webhook for new runs",
+                            "description": "Default webhook to call before starting new runs",
                             "name": "webhook",
                             "paramType": "form",
                             "required": false,
@@ -46,18 +53,26 @@
                             "name": "webhook_enabled",
                             "paramType": "form",
                             "required": false,
-                            "type": "string"
+                            "type": "boolean"
                         },
                         {
                             "allowMultiple": false,
-                            "description": "Default URL for this environment. You can update for each sites afterward.",
+                            "description": "Set this environment as the default",
+                            "name": "default",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "boolean"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Default base URL for tests run in this environment",
                             "name": "url",
                             "paramType": "form",
                             "required": false,
                             "type": "string"
                         }
                     ],
-                    "summary": "Create a new environment for this user",
+                    "summary": "Create a new environment for this user - creates corresponding site-environments for each environment as well",
                     "type": "void"
                 }
             ],
@@ -70,6 +85,13 @@
                     "nickname": "GET--version-environments--environment_id--json-",
                     "notes": "",
                     "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
                         {
                             "allowMultiple": false,
                             "description": "An environment ID",
@@ -88,6 +110,13 @@
                     "notes": "",
                     "parameters": [
                         {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
                             "allowMultiple": false,
                             "description": "An environment ID",
                             "name": "environment_id",
@@ -125,7 +154,7 @@
                             "name": "webhook_enabled",
                             "paramType": "form",
                             "required": false,
-                            "type": "string"
+                            "type": "boolean"
                         }
                     ],
                     "summary": "Update an existing environment",
@@ -136,6 +165,13 @@
                     "nickname": "DELETE--version-environments--environment_id--json-",
                     "notes": "",
                     "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
                         {
                             "allowMultiple": false,
                             "description": "An environment ID",
@@ -159,6 +195,13 @@
                     "notes": "",
                     "parameters": [
                         {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
                             "allowMultiple": false,
                             "description": "An environment ID",
                             "name": "environment_id",
@@ -174,7 +217,7 @@
             "path": "/1/environments/{environment_id}/runs.{format}"
         }
     ],
-    "basePath": "https://app.rainforestqa.com/api/",
+    "basePath": "https://app.rainforestqa.com/api",
     "produces": [
         "application/json"
     ],

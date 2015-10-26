@@ -7,7 +7,15 @@
                     "method": "GET",
                     "nickname": "GET--version-credit_cards--json-",
                     "notes": "",
-                    "parameters": [],
+                    "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        }
+                    ],
                     "summary": "Fetch the credit cards for the current account",
                     "type": "void"
                 }
@@ -15,7 +23,7 @@
             "path": "/1/credit_cards.{format}"
         }
     ],
-    "basePath": "https://app.rainforestqa.com/api/",
+    "basePath": "https://app.rainforestqa.com/api",
     "produces": [
         "application/json"
     ],

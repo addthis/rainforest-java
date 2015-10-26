@@ -18,7 +18,7 @@
                         },
                         {
                             "allowMultiple": false,
-                            "description": "Callback type",
+                            "description": "Callback type; before_run is currently the only type that affect this endpoint",
                             "name": "callback_type",
                             "paramType": "path",
                             "required": true,
@@ -33,7 +33,7 @@
                             "type": "string"
                         }
                     ],
-                    "summary": "Notify",
+                    "summary": "Notify Rainforest when before_run webhook is complete",
                     "type": "void"
                 }
             ],

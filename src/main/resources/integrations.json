@@ -7,7 +7,15 @@
                     "method": "GET",
                     "nickname": "GET--version-integrations--json-",
                     "notes": "",
-                    "parameters": [],
+                    "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        }
+                    ],
                     "summary": "List all the integrations configured for your client.",
                     "type": "void"
                 },
@@ -16,6 +24,13 @@
                     "nickname": "POST--version-integrations--json-",
                     "notes": "",
                     "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
                         {
                             "allowMultiple": false,
                             "description": "The type of integration, eg: hipchat",
@@ -47,6 +62,13 @@
                     "notes": "",
                     "parameters": [
                         {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
                             "allowMultiple": false,
                             "description": null,
                             "format": "int32",
@@ -64,6 +86,13 @@
                     "nickname": "PUT--version-integrations--id--json-",
                     "notes": "",
                     "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
                         {
                             "allowMultiple": false,
                             "description": "",
@@ -96,7 +125,7 @@
             "path": "/1/integrations/{id}.{format}"
         }
     ],
-    "basePath": "https://app.rainforestqa.com/api/",
+    "basePath": "https://app.rainforestqa.com/api",
     "produces": [
         "application/json"
     ],

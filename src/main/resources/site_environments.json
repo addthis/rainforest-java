@@ -7,7 +7,15 @@
                     "method": "GET",
                     "nickname": "GET--version-site_environments--json-",
                     "notes": "",
-                    "parameters": [],
+                    "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        }
+                    ],
                     "summary": "List sites and environments",
                     "type": "void"
                 }
@@ -22,11 +30,26 @@
                     "notes": "",
                     "parameters": [
                         {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
                             "allowMultiple": false,
                             "description": "A site environment ID",
                             "name": "site_environment_id",
                             "paramType": "path",
                             "required": true,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "New URL of the site in this environment",
+                            "name": "url",
+                            "paramType": "form",
+                            "required": false,
                             "type": "string"
                         }
                     ],
@@ -37,7 +60,7 @@
             "path": "/1/site_environments/{site_environment_id}.{format}"
         }
     ],
-    "basePath": "https://app.rainforestqa.com/api/",
+    "basePath": "https://app.rainforestqa.com/api",
     "produces": [
         "application/json"
     ],

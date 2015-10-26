@@ -2,67 +2,65 @@
     "apiVersion": "1",
     "apis": [
         {
-            "description": "Operations about schedules",
-            "path": "/schedules.{format}"
-        },
-        {
-            "description": "Operations about sites",
-            "path": "/sites.{format}"
-        },
-        {
-            "description": "Operations about site_environments",
-            "path": "/site_environments.{format}"
-        },
-        {
-            "description": "Operations about tests",
-            "path": "/tests.{format}"
-        },
-        {
-            "description": "Operations about users",
-            "path": "/users.{format}"
-        },
-        {
-            "description": "Operations about integrations",
-            "path": "/integrations.{format}"
-        },
-        {
-            "description": "Operations about callbacks",
+            "description": "Run webhook Callbacks",
             "path": "/callback.{format}"
         },
         {
-            "description": "Operations about clients",
+            "description": "Operations about Clients",
             "path": "/clients.{format}"
         },
         {
-            "description": "Operations about credit_cards",
+            "description": "Operations about Credit cards",
             "path": "/credit_cards.{format}"
         },
         {
-            "description": "Operations about environments",
+            "description": "Operations about Environments",
             "path": "/environments.{format}"
         },
         {
-            "description": "Operations about generators",
+            "description": "Operations about Generators",
             "path": "/generators.{format}"
         },
         {
-            "description": "Operations about pricing_plans",
-            "path": "/pricing_plans.{format}"
+            "description": "Operations about Integrations",
+            "path": "/integrations.{format}"
         },
         {
-            "description": "Operations about vm_stacks",
-            "path": "/vm_stack.{format}"
+            "description": "Operations about Schedules",
+            "path": "/schedules.{format}"
         },
         {
-            "description": "Operations about runs",
+            "description": "Operations about Runs",
             "path": "/runs.{format}"
         },
         {
-            "description": "Operations about usages",
+            "description": "Operations about Sites",
+            "path": "/sites.{format}"
+        },
+        {
+            "description": "Operations about Site environments",
+            "path": "/site_environments.{format}"
+        },
+        {
+            "description": "Operations about Tests",
+            "path": "/tests.{format}"
+        },
+        {
+            "description": "Operations about Users",
+            "path": "/users.{format}"
+        },
+        {
+            "description": "Operations about Usage",
             "path": "/usage.{format}"
+        },
+        {
+            "description": "Information about the Virtual Machines",
+            "path": "/vm_stack.{format}"
         }
     ],
-    "info": {},
+    "info": {
+        "description": "Nearly all interactions done on the Rainforest App can be done in the API as well. <br/><br/>Find your API Token on the <a href=\"https://app.rainforestqa.com/settings/integrations\">integration settings</a> page."
+    },
     "produces": [
         "application/json"
     ],

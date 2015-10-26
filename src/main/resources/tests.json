@@ -9,8 +9,15 @@
                     "notes": "",
                     "parameters": [
                         {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
                             "allowMultiple": false,
-                            "description": "Page of results to display, starts from zero",
+                            "description": "Page of results to display",
                             "format": "int32",
                             "name": "page",
                             "paramType": "query",
@@ -19,7 +26,7 @@
                         },
                         {
                             "allowMultiple": false,
-                            "description": "Number of runs to return per page. Defaults to 10 runs",
+                            "description": "Number of tests to return per page; default: 10",
                             "format": "int32",
                             "name": "page_size",
                             "paramType": "query",
@@ -28,7 +35,7 @@
                         },
                         {
                             "allowMultiple": false,
-                            "description": "Extra details to display: steps, history",
+                            "description": "List of extra details to display. Options: elements, attached_to, variables, run_tests_steps",
                             "name": "options",
                             "paramType": "query",
                             "required": false,
@@ -36,18 +43,7 @@
                         },
                         {
                             "allowMultiple": false,
-                            "description": "An array of sort options. Sortable columns are title, last_run. Format is [{\"col1\": \"ASC\"}]",
-                            "name": "sort",
-                            "paramType": "query",
-                            "required": false,
-                            "type": "array",
-                            "items": {
-                                "type": "object"
-                            }
-                        },
-                        {
-                            "allowMultiple": false,
-                            "description": "Only return tests with a specific result",
+                            "description": "Only return tests with a specific result; options: 'passed', 'failed', 'no_result'",
                             "name": "result",
                             "paramType": "query",
                             "required": false,
@@ -55,14 +51,14 @@
                         },
                         {
                             "allowMultiple": false,
-                            "description": "Only return tests having all specified tags",
+                            "description": "Only return tests having all specified tags. Can be a comma-separated list of tags",
+                            "items": {
+                                "type": "string"
+                            },
                             "name": "tags",
                             "paramType": "query",
                             "required": false,
-                            "type": "array",
-                            "items": {
-                                "type": "object"
-                            }
+                            "type": "array"
                         },
                         {
                             "allowMultiple": false,
@@ -83,7 +79,7 @@
                         },
                         {
                             "allowMultiple": false,
-                            "description": "Only return tests matching this criteria. Can be comma separated list of ids or an array of test ids. Optionally pass 'all' to run all tests in your account.",
+                            "description": "Only return tests matching this criteria. Can be comma-separated list of test ids or 'all' to return all tests",
                             "name": "tests",
                             "paramType": "query",
                             "required": false,
@@ -111,6 +107,13 @@
                     "notes": "",
                     "parameters": [
                         {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
                             "allowMultiple": false,
                             "description": "The test to create",
                             "name": "body",
@@ -126,16 +129,181 @@
                     "method": "DELETE",
                     "nickname": "DELETE--version-tests--json-",
                     "notes": "",
-                    "parameters": [],
-                    "summary": "",
+                    "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only delete tests with a specific result; options: 'passed', 'failed', 'no_result'",
+                            "name": "result",
+                            "paramType": "query",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only delete tests having all specified tags. Can be a comma-separated list of tags",
+                            "items": {
+                                "type": "string"
+                            },
+                            "name": "tags",
+                            "paramType": "query",
+                            "required": false,
+                            "type": "array"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only delete tests for this specific site",
+                            "format": "int32",
+                            "name": "site_id",
+                            "paramType": "query",
+                            "required": false,
+                            "type": "integer"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only delete tests matching this string",
+                            "name": "query",
+                            "paramType": "query",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only delete tests matching this criteria. Can be comma-separated list of test ids or 'all' to delete all tests",
+                            "name": "tests",
+                            "paramType": "query",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only delete tests matching smart folder criteria",
+                            "format": "int32",
+                            "name": "smart_folder_id",
+                            "paramType": "query",
+                            "required": false,
+                            "type": "integer"
+                        }
+                    ],
+                    "summary": "Delete multiple tests (CAUTION)",
                     "type": "void"
                 },
                 {
                     "method": "PUT",
                     "nickname": "PUT--version-tests--json-",
                     "notes": "",
-                    "parameters": [],
-                    "summary": "",
+                    "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only update tests for this specific site",
+                            "format": "int32",
+                            "name": "site_id",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "integer"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "The title of your test",
+                            "name": "title",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Where the test should start from; e.g. /login. Must start with a /",
+                            "name": "start_uri",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Optional text description of the test",
+                            "name": "description",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Either 'default' or 'sequential'; Defines if this test can be run in parallel",
+                            "name": "run_mode",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only update tests having all specified tags. Can be a comma-separated list of tags",
+                            "items": {
+                                "type": "string"
+                            },
+                            "name": "tags",
+                            "paramType": "query",
+                            "required": false,
+                            "type": "array"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "List of browsers for this test; options: android_tablet_landscape, safari, chrome, ubuntu_firefox, ubuntu_chrome, osx_firefox, ie11, chrome_guru, android_phone_portrait, firefox, chrome_1440_900, ie8, any, android_tablet_portrait, ie9, ie10, plangrid, android_phone_landscape, plangrid_app, ios_iphone4s, osx_chrome, popsugar, office2013, office2010",
+                            "name": "browsers",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "array",
+                            "items" : {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only update tests with a specific result; options: 'passed', 'failed', 'no_result'",
+                            "name": "result",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only update tests matching this string",
+                            "name": "query",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only update tests matching this criteria. Can be comma-separated list of test ids or 'all' to update all tests",
+                            "name": "tests",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only update tests matching smart folder criteria",
+                            "format": "int32",
+                            "name": "smart_folder_id",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "integer"
+                        }
+                    ],
+                    "summary": "Update multiple tests (CAUTION)",
                     "type": "void"
                 }
             ],
@@ -147,16 +315,93 @@
                     "method": "GET",
                     "nickname": "GET--version-tests-tags--json-",
                     "notes": "",
-                    "parameters": [],
-                    "summary": "tag cloud for tests",
+                    "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        }
+                    ],
+                    "summary": "Get all currently used tags and how often they are used",
                     "type": "void"
                 },
                 {
                     "method": "POST",
                     "nickname": "POST--version-tests-tags--json-",
                     "notes": "",
-                    "parameters": [],
-                    "summary": "",
+                    "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "List of tags to add",
+                            "name": "tag_with",
+                            "paramType": "form",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only tag tests with a specific result; options: 'passed', 'failed', 'no_result'",
+                            "name": "result",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only tag tests having all specified tags. Can be a comma-separated list of tags",
+                            "items": {
+                                "type": "string"
+                            },
+                            "name": "tags",
+                            "paramType": "query",
+                            "required": false,
+                            "type": "array"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only tag tests for this specific site",
+                            "format": "int32",
+                            "name": "site_id",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "integer"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only tag tests matching this string",
+                            "name": "query",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only tag tests matching this criteria. Can be comma-separated list of test ids or 'all' to tag all tests",
+                            "name": "tests",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only tag tests matching smart folder criteria",
+                            "format": "int32",
+                            "name": "smart_folder_id",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "integer"
+                        }
+                    ],
+                    "summary": "Tag a group of tests",
                     "type": "void"
                 }
             ],
@@ -168,8 +413,69 @@
                     "method": "POST",
                     "nickname": "POST--version-tests-duplicate--json-",
                     "notes": "",
-                    "parameters": [],
-                    "summary": "Creates a copy of the test",
+                    "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only copy tests with a specific result; options: 'passed', 'failed', 'no_result'",
+                            "name": "result",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only copy tests having all specified tags. Can be a comma-separated list of tags",
+                            "items": {
+                                "type": "string"
+                            },
+                            "name": "tags",
+                            "paramType": "query",
+                            "required": false,
+                            "type": "array"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only copy tests for this specific site",
+                            "format": "int32",
+                            "name": "site_id",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "integer"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only copy tests matching this string",
+                            "name": "query",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only copy tests matching this criteria. Can be comma-separated list of test ids or 'all' to copy all tests",
+                            "name": "tests",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "Only copy tests matching smart folder criteria",
+                            "format": "int32",
+                            "name": "smart_folder_id",
+                            "paramType": "form",
+                            "required": false,
+                            "type": "integer"
+                        }
+                    ],
+                    "summary": "Creates a copy multiple tests",
                     "type": "void"
                 }
             ],
@@ -182,6 +488,13 @@
                     "nickname": "getTestById",
                     "notes": "",
                     "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
                         {
                             "allowMultiple": false,
                             "description": "A test ID",
@@ -212,6 +525,13 @@
                     "notes": "",
                     "parameters": [
                         {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
                             "allowMultiple": false,
                             "description": "A test ID",
                             "format": "int32",
@@ -238,6 +558,13 @@
                     "notes": "",
                     "parameters": [
                         {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
                             "allowMultiple": false,
                             "description": "A test ID",
                             "format": "int32",
@@ -260,6 +587,13 @@
                     "nickname": "GET--version-tests--test_id-history--json-",
                     "notes": "",
                     "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
                         {
                             "allowMultiple": false,
                             "description": "A test ID",
@@ -295,90 +629,58 @@
             "path": "/1/tests/{test_id}/history.{format}"
         }
     ],
-    "basePath": "https://app.rainforestqa.com/api/",
-    "produces": [
-        "application/json"
-    ],
-    "resourcePath": "/tests",
-    "swaggerVersion": "1.2",
+    "basePath": "https://app.rainforestqa.com/api",
     "models": {
         "Test": {
             "id": "Test",
             "properties": {
-                "id": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "created_at": {
-                    "type": "date"
-                },
-                "test_id": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "site_id": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "title": {
-                    "type": "string"
-                },
-                "result": {
-                    "type": "string"
-                },
-                "start_uri": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "run_mode": {
-                    "type": "string"
-                },
-                "has_been_dry_run": {
-                    "type": "boolean"
-                },
-                "quality": {
-                    "type": "string"
-                },
-                "deleted": {
-                    "type": "boolean"
-                },
-                "deletable": {
-                    "type": "boolean"
-                },
-                "editable": {
-                    "type": "boolean"
-                },
                 "browsers": {
-                    "type": "array",
+                    "description": "List of browsers that the test runs on by default; browsers: android_tablet_landscape, safari, chrome, ubuntu_firefox, ubuntu_chrome, osx_firefox, ie11, chrome_guru, android_phone_portrait, firefox, chrome_1440_900, ie8, any, android_tablet_portrait, ie9, ie10, plangrid, android_phone_landscape, plangrid_app, ios_iphone4s, osx_chrome, popsugar, office2013, office2010",
                     "items": {
                         "$ref": "Browser"
-                    }
+                    },
+                    "type": "array"
                 },
-                "elements": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "Element"
-                    }
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "step_count": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "dry_run_url": {
+                "description": {
+                    "description": "Text description of the test",
                     "type": "string"
                 },
-                "last_run": {
-                    "$ref": "Element"
+                "elements": {
+                    "description": "Steps and embedded tests in order; add an id key if reusing an existing test element",
+                    "items": {
+                        "$ref": "TestElement"
+                    },
+                    "type": "array"
+                },
+                "run_mode": {
+                    "description": "Either 'default' or 'sequential'; Defines if this test can be run in parallel",
+                    "type": "string"
+                },
+                "site_id": {
+                    "description": "The ID of the site this test is for",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "start_uri": {
+                    "description": "Where the test should start from; e.g. /login. Must start with a /",
+                    "path": true,
+                    "type": "string"
+                },
+                "tags": {
+                    "description": "Tags on the test",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "title": {
+                    "description": "Title of your test",
+                    "type": "string"
                 }
-            }
+            },
+            "required": [
+                "start_uri"
+            ]
         },
         "Browser": {
             "id": "Browser",
@@ -397,35 +699,50 @@
                 }
             }
         },
-        "Element": {
-            "id": "Element",
+        "TestElement": {
+            "id": "TestElement",
             "properties": {
-                "id": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "created_at": {
-                    "type": "date"
-                },
-                "state": {
-                    "type": "string"
+                "element": {
+                    "$ref": "SubElement",
+                    "description": "Details of the step or embedded test"
                 },
                 "redirection": {
+                    "description": "Enable redirection",
                     "type": "boolean"
                 },
                 "type": {
+                    "description": "Type of element; options: step, test",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "redirection",
+                "type",
+                "element"
+            ]
+        },
+        "SubElement": {
+            "id": "SubElement",
+            "properties": {
+                "action": {
+                    "description": "Tester direction for this step; only for elements of type 'step'",
                     "type": "string"
                 },
-                "action": {
-                    "type": "string"
+                "id": {
+                    "description": "ID of embedded test; only for elements of type 'test'",
+                    "format": "int32",
+                    "type": "integer"
                 },
                 "response": {
+                    "description": "Question posed to tester in this step; only for elements of type 'step'",
                     "type": "string"
-                },
-                "element": {
-                    "$ref": "Element"
                 }
             }
         }
-    }
+    },
+    "produces": [
+        "application/json"
+    ],
+    "resourcePath": "/tests",
+    "swaggerVersion": "1.2"
 }

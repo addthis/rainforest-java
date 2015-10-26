@@ -9,6 +9,13 @@
                     "notes": "",
                     "parameters": [
                         {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
                             "allowMultiple": false,
                             "description": "Filter runs by their state. E.g. new, in_progress, complete",
                             "name": "state",
@@ -44,10 +51,20 @@
                     "notes": "",
                     "parameters": [
                         {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
                             "allowMultiple": false,
-                            "description": "An array of browsers to run this against, overrides the defaults",
+                            "description": "An array of browsers to run this against, overrides the defaults; options: android_tablet_landscape, safari, chrome, ubuntu_firefox, ubuntu_chrome, osx_firefox, ie11, chrome_guru, android_phone_portrait, firefox, chrome_1440_900, ie8, any, android_tablet_portrait, ie9, ie10, plangrid, android_phone_landscape, plangrid_app, ios_iphone4s, osx_chrome, popsugar, office2013, office2010",
+                            "items": {
+                                "type": "string"
+                            },
                             "name": "browsers",
-                            "paramType": "body",
+                            "paramType": "form",
                             "required": false,
                             "type": "array",
                             "items": { "type": "object" }
@@ -55,10 +72,11 @@
                         {
                             "allowMultiple": false,
                             "description": "Use a specific environment for this run",
+                            "format": "int32",
                             "name": "environment_id",
                             "paramType": "form",
                             "required": false,
-                            "type": "string"
+                            "type": "integer"
                         },
                         {
                             "allowMultiple": false,
@@ -70,7 +88,7 @@
                         },
                         {
                             "allowMultiple": false,
-                            "description": "How should we handle current other runs that are in progress",
+                            "description": "How should we handle current other runs that are in progress. Values are 'abort' to abort runs in the same environment as your new run and 'abort-all' to abort all runs",
                             "name": "conflict",
                             "paramType": "form",
                             "required": false,
@@ -78,7 +96,7 @@
                         },
                         {
                             "allowMultiple": false,
-                            "description": "Only run tests with a specific result",
+                            "description": "Only run tests with a specific result; options: 'passed', 'failed', 'no_result'",
                             "name": "result",
                             "paramType": "form",
                             "required": false,
@@ -86,9 +104,12 @@
                         },
                         {
                             "allowMultiple": false,
-                            "description": "Only run tests having all specified tags",
+                            "description": "Only run tests having all specified tags. Can be a comma-separated list of tags",
+                            "items": {
+                                "type": "string"
+                            },
                             "name": "tags",
-                            "paramType": "body",
+                            "paramType": "query",
                             "required": false,
                             "type": "array",
                             "items": { "type": "object" }
@@ -112,7 +133,7 @@
                         },
                         {
                             "allowMultiple": false,
-                            "description": "Only run tests matching this criteria. Can be comma separated list of ids or an array of test ids. Optionally pass 'all' to run all tests in your account.",
+                            "description": "Only run tests matching this criteria. Can be comma-separated list of test ids or 'all' to run all tests",
                             "name": "tests",
                             "paramType": "form",
                             "required": false,
@@ -129,7 +150,7 @@
                         },
                         {
                             "allowMultiple": false,
-                            "description": "Only run tests that were part of that previous run",
+                            "description": "Only run tests that were part of a previous run",
                             "format": "int32",
                             "name": "run_id",
                             "paramType": "form",
@@ -159,6 +180,13 @@
                     "notes": "",
                     "parameters": [
                         {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
                             "allowMultiple": false,
                             "description": "A run ID",
                             "name": "run_id",
@@ -184,6 +212,13 @@
                     "nickname": "DELETE--version-runs--run_id--json-",
                     "notes": "",
                     "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
                         {
                             "allowMultiple": false,
                             "description": "A run ID",
@@ -215,6 +250,13 @@
                     "nickname": "GET--version-runs--run_id-tests--json-",
                     "notes": "",
                     "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
                         {
                             "allowMultiple": false,
                             "description": "A run ID",
@@ -261,7 +303,7 @@
                         },
                         {
                             "allowMultiple": false,
-                            "description": "Only return tests with a specific result",
+                            "description": "Only return tests with a specific result; options: 'passed', 'failed', 'no_result'",
                             "name": "result",
                             "paramType": "query",
                             "required": false,
@@ -269,12 +311,14 @@
                         },
                         {
                             "allowMultiple": false,
-                            "description": "Only return tests having all specified tags",
+                            "description": "Only return tests having all specified tags. Can be a comma-separated list of tags",
+                            "items": {
+                                "type": "string"
+                            },
                             "name": "tags",
                             "paramType": "query",
                             "required": false,
-                            "type": "array",
-                            "items": { "type": "object" }
+                            "type": "array"
                         },
                         {
                             "allowMultiple": false,
@@ -295,7 +339,7 @@
                         },
                         {
                             "allowMultiple": false,
-                            "description": "Only return tests matching this criteria. Can be comma separated list of ids or an array of test ids. Optionally pass 'all' to run all tests in your account.",
+                            "description": "Only return tests matching this criteria. Can be comma-separated list of test ids or 'all' to return all tests",
                             "name": "tests",
                             "paramType": "query",
                             "required": false,
@@ -324,6 +368,13 @@
                     "nickname": "GET--version-runs--run_id-tests--test_id--json-",
                     "notes": "",
                     "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
                         {
                             "allowMultiple": false,
                             "description": "A run ID",

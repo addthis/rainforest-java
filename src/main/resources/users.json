@@ -7,7 +7,15 @@
                     "method": "GET",
                     "nickname": "GET--version-users--json-",
                     "notes": "",
-                    "parameters": [],
+                    "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        }
+                    ],
                     "summary": "List users",
                     "type": "void"
                 },
@@ -16,6 +24,13 @@
                     "nickname": "POST--version-users--json-",
                     "notes": "",
                     "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
                         {
                             "allowMultiple": false,
                             "description": "The user's email",
@@ -55,6 +70,13 @@
                     "notes": "",
                     "parameters": [
                         {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
                             "allowMultiple": false,
                             "description": "The email where to send the credentials",
                             "name": "email",
@@ -77,22 +99,12 @@
                     "notes": "",
                     "parameters": [
                         {
-                            "allowMultiple": false,
-                            "description": "A user ID",
-                            "name": "user_id",
-                            "paramType": "path",
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
                             "required": true,
                             "type": "string"
-                        }
-                    ],
-                    "summary": "Get a user",
-                    "type": "void"
-                },
-                {
-                    "method": "DELETE",
-                    "nickname": "DELETE--version-users--user_id--json-",
-                    "notes": "",
-                    "parameters": [
+                        },
                         {
                             "allowMultiple": false,
                             "description": "A user ID",
@@ -102,7 +114,7 @@
                             "type": "string"
                         }
                     ],
-                    "summary": "Delete a user",
+                    "summary": "Get a user's account information",
                     "type": "void"
                 },
                 {
@@ -110,6 +122,13 @@
                     "nickname": "PUT--version-users--user_id--json-",
                     "notes": "",
                     "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
                         {
                             "allowMultiple": false,
                             "description": "A user ID",
@@ -152,29 +171,48 @@
                         },
                         {
                             "allowMultiple": false,
-                            "description": "We allow owners to relinquish ownership to another team member",
+                            "description": "Primary account can pass ownership by setting this to 'owner'",
+                            "enum": [
+                                "owner"
+                            ],
                             "name": "role",
                             "paramType": "form",
                             "required": false,
                             "type": "string"
-                        },
-                        {
-                            "allowMultiple": false,
-                            "description": "Arbitrary hash to store against the user",
-                            "name": "settings",
-                            "paramType": "form",
-                            "required": false,
-                            "type": "object"
                         }
                     ],
                     "summary": "Update a user",
+                    "type": "void"
+                },
+                {
+                    "method": "DELETE",
+                    "nickname": "DELETE--version-users--user_id--json-",
+                    "notes": "",
+                    "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "A user ID",
+                            "name": "user_id",
+                            "paramType": "path",
+                            "required": true,
+                            "type": "string"
+                        }
+                    ],
+                    "summary": "Delete a user account",
                     "type": "void"
                 }
             ],
             "path": "/1/users/{user_id}.{format}"
         }
     ],
-    "basePath": "https://app.rainforestqa.com/api/",
+    "basePath": "https://app.rainforestqa.com/api",
     "produces": [
         "application/json"
     ],

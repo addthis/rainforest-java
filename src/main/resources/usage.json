@@ -7,15 +7,23 @@
                     "method": "GET",
                     "nickname": "GET--version-usage--json-",
                     "notes": "",
-                    "parameters": [],
-                    "summary": "Usage API",
+                    "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        }
+                    ],
+                    "summary": "Get your usage stats for Rainforest",
                     "type": "void"
                 }
             ],
             "path": "/1/usage.{format}"
         }
     ],
-    "basePath": "https://app.rainforestqa.com/api/",
+    "basePath": "https://app.rainforestqa.com/api",
     "produces": [
         "application/json"
     ],

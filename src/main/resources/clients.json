@@ -7,7 +7,15 @@
                     "method": "GET",
                     "nickname": "GET--version-clients--json-",
                     "notes": "",
-                    "parameters": [],
+                    "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        }
+                    ],
                     "summary": "Fetch your account details",
                     "type": "void"
                 },
@@ -17,11 +25,10 @@
                     "notes": "",
                     "parameters": [
                         {
-                            "allowMultiple": false,
-                            "description": "Password for authentication",
-                            "name": "password",
-                            "paramType": "form",
-                            "required": false,
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
                             "type": "string"
                         },
                         {
@@ -36,101 +43,12 @@
                             "allowMultiple": false,
                             "description": "A dedicated billing email address",
                             "name": "billing_email",
-                            "paramType": "form",
-                            "required": false,
-                            "type": "string"
-                        },
-                        {
-                            "allowMultiple": false,
-                            "description": "A list of settings for the client interface",
-                            "name": "settings",
-                            "paramType": "form",
-                            "required": false,
-                            "type": "object"
-                        }
-                    ],
-                    "summary": "Update account information",
-                    "type": "void"
-                },
-                {
-                    "method": "POST",
-                    "nickname": "POST--version-clients--json-",
-                    "notes": "",
-                    "parameters": [
-                        {
-                            "allowMultiple": false,
-                            "description": "Email. Used for login and communication with you. Cannot be a duplicate",
-                            "name": "email",
-                            "paramType": "form",
-                            "required": true,
-                            "type": "string"
-                        },
-                        {
-                            "allowMultiple": false,
-                            "description": "Password for authentication",
-                            "name": "password",
-                            "paramType": "form",
-                            "required": true,
-                            "type": "string"
-                        },
-                        {
-                            "allowMultiple": false,
-                            "description": "Your Account name. Used in emails to you and the interface",
-                            "name": "name",
-                            "paramType": "form",
-                            "required": false,
-                            "type": "string"
-                        },
-                        {
-                            "allowMultiple": false,
-                            "description": "A dedicated billing email address",
-                            "name": "billing_email",
-                            "paramType": "form",
-                            "required": false,
-                            "type": "string"
-                        },
-                        {
-                            "allowMultiple": false,
-                            "description": "Your name. Used in emails to you and the interface",
-                            "name": "user_name",
-                            "paramType": "form",
-                            "required": false,
-                            "type": "string"
-                        },
-                        {
-                            "allowMultiple": false,
-                            "description": "Your phone number.",
-                            "name": "phone",
-                            "paramType": "form",
-                            "required": false,
-                            "type": "string"
-                        },
-                        {
-                            "allowMultiple": false,
-                            "description": "The source of the signup",
-                            "name": "source",
-                            "paramType": "form",
-                            "required": false,
-                            "type": "string"
-                        },
-                        {
-                            "allowMultiple": false,
-                            "description": "The url of the site you wish to test",
-                            "name": "site_url",
                             "paramType": "form",
                             "required": false,
                             "type": "string"
                         }
                     ],
-                    "summary": "Sign up and create a new account",
-                    "type": "void"
-                },
-                {
-                    "method": "DELETE",
-                    "nickname": "DELETE--version-clients--json-",
-                    "notes": "",
-                    "parameters": [],
-                    "summary": "Sign up and create a new account",
+                    "summary": "Update account information",
                     "type": "void"
                 }
             ],
@@ -142,15 +60,23 @@
                     "method": "GET",
                     "nickname": "GET--version-clients-stats--json-",
                     "notes": "",
-                    "parameters": [],
-                    "summary": "",
+                    "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        }
+                    ],
+                    "summary": "Fetch usage stats",
                     "type": "void"
                 }
             ],
             "path": "/1/clients/stats.{format}"
         }
     ],
-    "basePath": "https://app.rainforestqa.com/api/",
+    "basePath": "https://app.rainforestqa.com/api",
     "produces": [
         "application/json"
     ],

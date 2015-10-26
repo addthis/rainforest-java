@@ -7,7 +7,15 @@
                     "method": "GET",
                     "nickname": "listGenerators",
                     "notes": "",
-                    "parameters": [],
+                    "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        }
+                    ],
                     "summary": "Retrieve a list of all available generators.",
                     "type": "array",
                     "items": {
@@ -20,11 +28,18 @@
                     "notes": "",
                     "parameters": [
                         {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
                             "allowMultiple": false,
-                            "description": "Array of hash/object with data.",
-                            "name": "data",
+                            "description": null,
+                            "name": "body",
                             "paramType": "body",
-                            "required": false,
+                            "required": true,
                             "$ref": "Generator"
                         }
                     ],
@@ -38,16 +53,24 @@
             "operations": [
                 {
                     "method": "GET",
-                    "nickname": "GET--version-generators--id--json-",
+                    "nickname": "GET--version-generators--generator_id--json-",
                     "notes": "",
                     "parameters": [
                         {
-                            "allowMultiple": false,
-                            "description": "",
-                            "name": "id",
-                            "paramType": "path",
-                            "required": false,
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
                             "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "A generator ID",
+                            "format": "int32",
+                            "name": "generator_id",
+                            "paramType": "path",
+                            "required": true,
+                            "type": "integer"
                         }
                     ],
                     "summary": "Get a specific generator",
@@ -55,54 +78,32 @@
                 },
                 {
                     "method": "PUT",
-                    "nickname": "PUT--version-generators--id--json-",
+                    "nickname": "PUT--version-generators--generator_id--json-",
                     "notes": "",
                     "parameters": [
                         {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
                             "allowMultiple": false,
-                            "description": "",
-                            "name": "id",
+                            "description": "A generator ID",
+                            "format": "int32",
+                            "name": "generator_id",
                             "paramType": "path",
-                            "required": false,
-                            "type": "string"
+                            "required": true,
+                            "type": "integer"
                         },
                         {
                             "allowMultiple": false,
-                            "description": "Name of the generator",
-                            "name": "name",
-                            "paramType": "form",
-                            "required": false,
-                            "type": "string"
-                        },
-                        {
-                            "allowMultiple": false,
-                            "description": "Description of the generator",
-                            "name": "description",
-                            "paramType": "form",
-                            "required": false,
-                            "type": "string"
-                        },
-                        {
-                            "allowMultiple": false,
-                            "description": "An array of column objects",
-                            "name": "columns",
+                            "description": null,
+                            "name": "body",
                             "paramType": "body",
-                            "required": false,
-                            "type": "array",
-                            "items": {
-                                "type": "object"
-                            }
-                        },
-                        {
-                            "allowMultiple": false,
-                            "description": "Array of hash/object with data.",
-                            "name": "data",
-                            "paramType": "body",
-                            "required": false,
-                            "type": "array",
-                            "items": {
-                                "type": "object"
-                            }
+                            "required": true,
+                            "$ref": "Generator"
                         }
                     ],
                     "summary": "Update a specific generator",
@@ -114,19 +115,27 @@
                     "notes": "",
                     "parameters": [
                         {
-                            "allowMultiple": false,
-                            "description": "",
-                            "name": "id",
-                            "paramType": "path",
-                            "required": false,
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
                             "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "A generator ID",
+                            "format": "int32",
+                            "name": "generator_id",
+                            "paramType": "path",
+                            "required": true,
+                            "type": "integer"
                         }
                     ],
                     "summary": "Delete a specific generator",
                     "type": "void"
                 }
             ],
-            "path": "/1/generators/{id}.{format}"
+            "path": "/1/generators/{generator_id}.{format}"
         },
         {
             "operations": [
@@ -136,177 +145,210 @@
                     "notes": "",
                     "parameters": [
                         {
-                            "allowMultiple": false,
-                            "description": "",
-                            "name": "id",
-                            "paramType": "path",
-                            "required": false,
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
                             "type": "string"
                         },
                         {
                             "allowMultiple": false,
-                            "description": "Generator instance data",
-                            "name": "data",
+                            "description": "A generator ID",
+                            "format": "int32",
+                            "name": "generator_id",
+                            "paramType": "path",
+                            "required": true,
+                            "type": "integer"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "JSON body in the format of {\"data\": {\"col_id1\": \"value1\", \"col_id2\": \"value2\", ...}}",
+                            "name": "body",
                             "paramType": "body",
                             "required": true,
                             "$ref": "Row"
                         }
                     ],
-                    "summary": "Create an instance of a generator",
+                    "summary": "Create a generator row",
                     "type": "void"
                 },
                 {
                     "method": "GET",
-                    "nickname": "GET--version-generators--id-rows--json-",
+                    "nickname": "GET--version-generators--generator_id-rows--json-",
                     "notes": "",
                     "parameters": [
                         {
-                            "allowMultiple": false,
-                            "description": "",
-                            "name": "id",
-                            "paramType": "path",
-                            "required": false,
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
                             "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "A generator ID",
+                            "format": "int32",
+                            "name": "generator_id",
+                            "paramType": "path",
+                            "required": true,
+                            "type": "integer"
                         }
                     ],
                     "summary": "Get all instances of a generator",
                     "type": "void"
                 }
             ],
-            "path": "/1/generators/{id}/rows.{format}"
+            "path": "/1/generators/{generator_id}/rows.{format}"
         },
         {
             "operations": [
                 {
                     "method": "GET",
-                    "nickname": "GET--version-generators--id-rows--row_id--json-",
+                    "nickname": "GET--version-generators--generator_id-rows--row_id--json-",
                     "notes": "",
                     "parameters": [
                         {
-                            "allowMultiple": false,
-                            "description": "",
-                            "name": "id",
-                            "paramType": "path",
-                            "required": false,
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
                             "type": "string"
                         },
                         {
                             "allowMultiple": false,
-                            "description": "",
+                            "description": "A generator ID",
+                            "format": "int32",
+                            "name": "generator_id",
+                            "paramType": "path",
+                            "required": true,
+                            "type": "integer"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "A row ID",
+                            "format": "int32",
                             "name": "row_id",
                             "paramType": "path",
-                            "required": false,
-                            "type": "string"
+                            "required": true,
+                            "type": "integer"
                         }
                     ],
-                    "summary": "Get a generator instance",
+                    "summary": "Get a generator row",
                     "type": "void"
                 },
                 {
                     "method": "PUT",
-                    "nickname": "PUT--version-generators--id-rows--row_id--json-",
+                    "nickname": "PUT--version-generators--generator_id-rows--row_id--json-",
                     "notes": "",
                     "parameters": [
                         {
-                            "allowMultiple": false,
-                            "description": "",
-                            "name": "id",
-                            "paramType": "path",
-                            "required": false,
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
                             "type": "string"
                         },
                         {
                             "allowMultiple": false,
-                            "description": "",
+                            "description": "A generator ID",
+                            "format": "int32",
+                            "name": "generator_id",
+                            "paramType": "path",
+                            "required": true,
+                            "type": "integer"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "A row ID",
+                            "format": "int32",
                             "name": "row_id",
                             "paramType": "path",
-                            "required": false,
-                            "type": "string"
+                            "required": true,
+                            "type": "integer"
                         },
                         {
                             "allowMultiple": false,
-                            "description": "Generator instance data",
-                            "name": "data",
-                            "paramType": "form",
+                            "description": "JSON body in the format of {\"data\": {\"col_id1\": \"value1\", \"col_id2\": \"value2\", ...}}",
+                            "name": "body",
+                            "paramType": "body",
                             "required": true,
-                            "type": "object"
+                            "$ref": "Row"
                         }
                     ],
-                    "summary": "Update a generator instance",
+                    "summary": "Update a generator row",
                     "type": "void"
                 },
                 {
                     "method": "DELETE",
-                    "nickname": "DELETE--version-generators--id-rows--row_id--json-",
+                    "nickname": "DELETE--version-generators--generator_id-rows--row_id--json-",
                     "notes": "",
                     "parameters": [
                         {
-                            "allowMultiple": false,
-                            "description": "",
-                            "name": "id",
-                            "paramType": "path",
-                            "required": false,
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
                             "type": "string"
                         },
                         {
                             "allowMultiple": false,
-                            "description": "",
+                            "description": "A generator ID",
+                            "format": "int32",
+                            "name": "generator_id",
+                            "paramType": "path",
+                            "required": true,
+                            "type": "integer"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "A row ID",
+                            "format": "int32",
                             "name": "row_id",
                             "paramType": "path",
-                            "required": false,
-                            "type": "string"
+                            "required": true,
+                            "type": "integer"
                         }
                     ],
-                    "summary": "Delete a generator instance",
+                    "summary": "Delete a generator row",
                     "type": "void"
                 }
             ],
-            "path": "/1/generators/{id}/rows/{row_id}.{format}"
+            "path": "/1/generators/{generator_id}/rows/{row_id}.{format}"
         }
     ],
-    "basePath": "https://app.rainforestqa.com/api/",
-    "produces": [
-        "application/json"
-    ],
-    "resourcePath": "/generators",
-    "swaggerVersion": "1.2",
+    "basePath": "https://app.rainforestqa.com/api",
     "models": {
         "Generator": {
             "id": "Generator",
             "properties": {
-                "id": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "created_at": {
-                    "type": "date"
-                },
-                "name": {
-                    "type": "string"
+                "data": {
+                    "description": "Array of JSON objects representing rows of data;\n        keys represent column names names, values represent the generator values;\n        only one row allowed for custom generators;\n        COMPLETELY OVERWRITES EXISTING DATA FOR THIS GENERATOR",
+                    "items": {
+                        "$ref": "Column"
+                    },
+                    "type": "array"
                 },
                 "description": {
+                    "description": "Description of generator",
                     "type": "string"
                 },
                 "generator_type": {
+                    "description": "'custom' or 'tabular'; defaults to 'tabular'",
                     "type": "string"
                 },
-                "row_count": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "generator_type": {
+                "name": {
+                    "description": "Name of generator; must_be_snake_case",
                     "type": "string"
                 },
                 "single_use": {
+                    "description": "If true rows will be removed after a single use; defaults to 'false' (Tabular variables only)",
                     "type": "boolean"
-                },
-                "columns": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "Column"
-                    }
                 }
-            }
+            },
+            "required": [
+                "name",
+                "description"
+            ]
         },
         "Column": {
             "id": "Column",
@@ -335,5 +377,10 @@
                 }
             }
         }
-    }
+    },
+    "produces": [
+        "application/json"
+    ],
+    "resourcePath": "/generators",
+    "swaggerVersion": "1.2"
 }

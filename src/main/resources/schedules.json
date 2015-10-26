@@ -7,7 +7,15 @@
                     "method": "GET",
                     "nickname": "GET--version-schedules--json-",
                     "notes": "",
-                    "parameters": [],
+                    "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        }
+                    ],
                     "summary": "Schedule Run API",
                     "type": "void"
                 },
@@ -17,24 +25,22 @@
                     "notes": "",
                     "parameters": [
                         {
-                            "allowMultiple": false,
-                            "description": "The recurrence rule for this schedule. Formatted as {\"day\": \"monday\", \"time\": \"16:00\"}",
-                            "name": "repeat_rules",
-                            "paramType": "body",
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
                             "required": true,
-                            "type": "array",
-                            "items": { "type": "object" }
+                            "type": "string"
                         },
                         {
                             "allowMultiple": false,
-                            "description": "Only run tests matching all filters. Possible options are result, tags, site_id, query, tests, smart_folder_id",
-                            "name": "filters",
-                            "paramType": "form",
+                            "description": null,
+                            "name": "body",
+                            "paramType": "body",
                             "required": true,
-                            "type": "object"
+                            "$ref": "Schedule"
                         }
                     ],
-                    "summary": "",
+                    "summary": "Create a new schedule",
                     "type": "void"
                 }
             ],
@@ -48,32 +54,23 @@
                     "notes": "",
                     "parameters": [
                         {
-                            "allowMultiple": false,
-                            "description": "A schedule ID",
-                            "name": "schedule_id",
-                            "paramType": "path",
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
                             "required": true,
                             "type": "string"
-                        }
-                    ],
-                    "summary": "Get a schedule",
-                    "type": "void"
-                },
-                {
-                    "method": "DELETE",
-                    "nickname": "DELETE--version-schedules--schedule_id--json-",
-                    "notes": "",
-                    "parameters": [
+                        },
                         {
                             "allowMultiple": false,
                             "description": "A schedule ID",
+                            "format": "int32",
                             "name": "schedule_id",
                             "paramType": "path",
                             "required": true,
-                            "type": "string"
+                            "type": "integer"
                         }
                     ],
-                    "summary": "Delete a schedule",
+                    "summary": "Get a schedule",
                     "type": "void"
                 },
                 {
@@ -82,39 +79,139 @@
                     "notes": "",
                     "parameters": [
                         {
-                            "allowMultiple": false,
-                            "description": "A schedule ID",
-                            "name": "schedule_id",
-                            "paramType": "path",
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
                             "required": true,
                             "type": "string"
                         },
                         {
                             "allowMultiple": false,
-                            "description": "The recurrence rule for this schedule. Formatted as {\"day\": \"monday\", \"time\": \"16:00\"}",
-                            "name": "repeat_rules",
-                            "paramType": "body",
+                            "description": "A schedule ID",
+                            "format": "int32",
+                            "name": "schedule_id",
+                            "paramType": "path",
                             "required": true,
-                            "type": "array",
-                            "items": { "type": "object" }
+                            "type": "integer"
                         },
                         {
                             "allowMultiple": false,
-                            "description": "Only run tests matching all filters. Possible options are result, tags, site_id, query, tests, smart_folder_id",
-                            "name": "filters",
-                            "paramType": "form",
-                            "required": false,
-                            "type": "object"
+                            "description": null,
+                            "name": "body",
+                            "paramType": "body",
+                            "required": true,
+                            "$ref": "Schedule"
                         }
                     ],
                     "summary": "Update a schedule",
+                    "type": "void"
+                },
+                {
+                    "method": "DELETE",
+                    "nickname": "DELETE--version-schedules--schedule_id--json-",
+                    "notes": "",
+                    "parameters": [
+                        {
+                            "description": "Client API token",
+                            "name": "CLIENT_TOKEN",
+                            "paramType": "header",
+                            "required": true,
+                            "type": "string"
+                        },
+                        {
+                            "allowMultiple": false,
+                            "description": "A schedule ID",
+                            "format": "int32",
+                            "name": "schedule_id",
+                            "paramType": "path",
+                            "required": true,
+                            "type": "integer"
+                        }
+                    ],
+                    "summary": "Delete a schedule",
                     "type": "void"
                 }
             ],
             "path": "/1/schedules/{schedule_id}.{format}"
         }
     ],
-    "basePath": "https://app.rainforestqa.com/api/",
+    "basePath": "https://app.rainforestqa.com/api",
+    "models": {
+        "Schedule": {
+            "id": "Schedule",
+            "properties": {
+                "filters": {
+                    "$ref": "ScheduleFilter",
+                    "description": "Filters to select which tests will be run"
+                },
+                "repeat_rules": {
+                    "description": "Days and times (in UTC) that your run will begin",
+                    "items": {
+                        "$ref": "ScheduleRule"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "repeat_rules",
+                "filters"
+            ]
+        },
+        "ScheduleFilter": {
+            "id": "ScheduleFilter",
+            "properties": {
+                "query": {
+                    "description": "Find tests that contain this string",
+                    "type": "string"
+                },
+                "result": {
+                    "description": "Find tests that have this state; Possible values: 'passed', 'failed', 'no_result'",
+                    "type": "string"
+                },
+                "site_id": {
+                    "description": "Find tests that use this site id",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "smart_folder_id": {
+                    "description": "Find tests that are included in this smart folder",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "tags": {
+                    "description": "A comma-separated list of all tags to filter by",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "tests": {
+                    "description": "An array or comma-separated list of test ids or simply 'all' to select all tests",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            }
+        },
+        "ScheduleRule": {
+            "id": "ScheduleRule",
+            "properties": {
+                "day": {
+                    "description": "Possible values: monday, tuesday, wednesday, thursday, friday, saturday, sunday",
+                    "type": "string"
+                },
+                "time": {
+                    "description": "Time of day in UTC(+0:00), formatted like 12:30",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "day",
+                "time"
+            ]
+        }
+    },
     "produces": [
         "application/json"
     ],
