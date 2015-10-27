@@ -7,14 +7,10 @@
                     "method": "GET",
                     "nickname": "GET--version-credit_cards--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        }
                     ],
                     "summary": "Fetch the credit cards for the current account",
                     "type": "void"

@@ -7,14 +7,10 @@
                     "method": "GET",
                     "nickname": "GET--version-usage--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        }
                     ],
                     "summary": "Get your usage stats for Rainforest",
                     "type": "void"

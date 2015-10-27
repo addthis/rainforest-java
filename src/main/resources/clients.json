@@ -7,14 +7,10 @@
                     "method": "GET",
                     "nickname": "GET--version-clients--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        }
                     ],
                     "summary": "Fetch your account details",
                     "type": "void"
@@ -23,14 +19,10 @@
                     "method": "PUT",
                     "nickname": "PUT--version-clients--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": "Your name. Used in emails to you and the interface",
@@ -60,14 +52,10 @@
                     "method": "GET",
                     "nickname": "GET--version-clients-stats--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        }
                     ],
                     "summary": "Fetch usage stats",
                     "type": "void"

@@ -7,14 +7,10 @@
                     "method": "GET",
                     "nickname": "GET--version-site_environments--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        }
                     ],
                     "summary": "List sites and environments",
                     "type": "void"
@@ -28,14 +24,10 @@
                     "method": "PUT",
                     "nickname": "PUT--version-site_environments--site_environment_id--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": "A site environment ID",

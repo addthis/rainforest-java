@@ -7,14 +7,10 @@
                     "method": "GET",
                     "nickname": "GET--version-sites--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        }
                     ],
                     "summary": "List sites",
                     "type": "void"
@@ -23,14 +19,10 @@
                     "method": "POST",
                     "nickname": "POST--version-sites--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": "The name of the new site",
@@ -60,14 +52,10 @@
                     "method": "PUT",
                     "nickname": "PUT--version-sites--site_id--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": "A site ID",
@@ -103,14 +91,10 @@
                     "method": "DELETE",
                     "nickname": "DELETE--version-sites--site_id--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": "A site ID",

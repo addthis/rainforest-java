@@ -7,14 +7,10 @@
                     "method": "GET",
                     "nickname": "GET--version-schedules--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        }
                     ],
                     "summary": "Schedule Run API",
                     "type": "void"
@@ -23,14 +19,10 @@
                     "method": "POST",
                     "nickname": "POST--version-schedules--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": null,
@@ -52,14 +44,10 @@
                     "method": "GET",
                     "nickname": "GET--version-schedules--schedule_id--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": "A schedule ID",
@@ -77,14 +65,10 @@
                     "method": "PUT",
                     "nickname": "PUT--version-schedules--schedule_id--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": "A schedule ID",
@@ -110,14 +94,10 @@
                     "method": "DELETE",
                     "nickname": "DELETE--version-schedules--schedule_id--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": "A schedule ID",

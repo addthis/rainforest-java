@@ -64,5 +64,12 @@
     "produces": [
         "application/json"
     ],
+    "authorizations" : {
+        "apiKey": {
+            "type": "apiKey",
+            "passAs": "header",
+            "keyname": "CLIENT_TOKEN"
+        }
+    },
     "swaggerVersion": "1.2"
 }

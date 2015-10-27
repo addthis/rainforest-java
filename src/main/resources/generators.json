@@ -7,14 +7,10 @@
                     "method": "GET",
                     "nickname": "listGenerators",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        }
                     ],
                     "summary": "Retrieve a list of all available generators.",
                     "type": "array",
@@ -26,14 +22,10 @@
                     "method": "POST",
                     "nickname": "createGenerator",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": null,
@@ -55,14 +47,10 @@
                     "method": "GET",
                     "nickname": "GET--version-generators--generator_id--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": "A generator ID",
@@ -80,14 +68,10 @@
                     "method": "PUT",
                     "nickname": "PUT--version-generators--generator_id--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": "A generator ID",
@@ -113,14 +97,10 @@
                     "method": "DELETE",
                     "nickname": "deleteGeneratorById",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": "A generator ID",
@@ -143,14 +123,10 @@
                     "method": "POST",
                     "nickname": "createRow",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": "A generator ID",
@@ -176,14 +152,10 @@
                     "method": "GET",
                     "nickname": "GET--version-generators--generator_id-rows--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": "A generator ID",
@@ -206,14 +178,10 @@
                     "method": "GET",
                     "nickname": "GET--version-generators--generator_id-rows--row_id--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": "A generator ID",
@@ -240,14 +208,10 @@
                     "method": "PUT",
                     "nickname": "PUT--version-generators--generator_id-rows--row_id--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": "A generator ID",
@@ -282,14 +246,10 @@
                     "method": "DELETE",
                     "nickname": "DELETE--version-generators--generator_id-rows--row_id--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": "A generator ID",
@@ -321,6 +281,10 @@
         "Generator": {
             "id": "Generator",
             "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int32"
+                },
                 "data": {
                     "description": "Array of JSON objects representing rows of data;\n        keys represent column names names, values represent the generator values;\n        only one row allowed for custom generators;\n        COMPLETELY OVERWRITES EXISTING DATA FOR THIS GENERATOR",
                     "items": {
@@ -343,6 +307,12 @@
                 "single_use": {
                     "description": "If true rows will be removed after a single use; defaults to 'false' (Tabular variables only)",
                     "type": "boolean"
+                },
+                "columns": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "Column"
+                    }
                 }
             },
             "required": [
@@ -373,7 +343,8 @@
                     "format": "int64"
                 },
                 "data": {
-                    "type": "object"
+                    "description": "The data for the row",
+                    "$ref": "object"
                 }
             }
         }

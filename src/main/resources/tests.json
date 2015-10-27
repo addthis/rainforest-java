@@ -7,14 +7,10 @@
                     "method": "GET",
                     "nickname": "getTests",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": "Page of results to display",
@@ -105,14 +101,10 @@
                     "method": "POST",
                     "nickname": "createTest",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": "The test to create",
@@ -129,14 +121,10 @@
                     "method": "DELETE",
                     "nickname": "DELETE--version-tests--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": "Only delete tests with a specific result; options: 'passed', 'failed', 'no_result'",
@@ -198,14 +186,10 @@
                     "method": "PUT",
                     "nickname": "PUT--version-tests--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": "Only update tests for this specific site",
@@ -265,7 +249,7 @@
                             "paramType": "form",
                             "required": false,
                             "type": "array",
-                            "items" : {
+                            "items": {
                                 "type": "string"
                             }
                         },
@@ -315,14 +299,10 @@
                     "method": "GET",
                     "nickname": "GET--version-tests-tags--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        }
                     ],
                     "summary": "Get all currently used tags and how often they are used",
                     "type": "void"
@@ -331,14 +311,10 @@
                     "method": "POST",
                     "nickname": "POST--version-tests-tags--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": "List of tags to add",
@@ -413,14 +389,10 @@
                     "method": "POST",
                     "nickname": "POST--version-tests-duplicate--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": "Only copy tests with a specific result; options: 'passed', 'failed', 'no_result'",
@@ -487,14 +459,10 @@
                     "method": "GET",
                     "nickname": "getTestById",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": "A test ID",
@@ -523,14 +491,10 @@
                     "method": "PUT",
                     "nickname": "updateTest",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": "A test ID",
@@ -556,14 +520,10 @@
                     "method": "DELETE",
                     "nickname": "deleteTest",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": "A test ID",
@@ -586,14 +546,10 @@
                     "method": "GET",
                     "nickname": "GET--version-tests--test_id-history--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": "A test ID",
@@ -634,6 +590,10 @@
         "Test": {
             "id": "Test",
             "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
                 "browsers": {
                     "description": "List of browsers that the test runs on by default; browsers: android_tablet_landscape, safari, chrome, ubuntu_firefox, ubuntu_chrome, osx_firefox, ie11, chrome_guru, android_phone_portrait, firefox, chrome_1440_900, ie8, any, android_tablet_portrait, ie9, ie10, plangrid, android_phone_landscape, plangrid_app, ios_iphone4s, osx_chrome, popsugar, office2013, office2010",
                     "items": {

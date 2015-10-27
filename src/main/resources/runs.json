@@ -7,14 +7,10 @@
                     "method": "GET",
                     "nickname": "GET--version-runs--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": "Filter runs by their state. E.g. new, in_progress, complete",
@@ -49,14 +45,10 @@
                     "method": "POST",
                     "nickname": "POST--version-runs--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": "An array of browsers to run this against, overrides the defaults; options: android_tablet_landscape, safari, chrome, ubuntu_firefox, ubuntu_chrome, osx_firefox, ie11, chrome_guru, android_phone_portrait, firefox, chrome_1440_900, ie8, any, android_tablet_portrait, ie9, ie10, plangrid, android_phone_landscape, plangrid_app, ios_iphone4s, osx_chrome, popsugar, office2013, office2010",
@@ -67,7 +59,9 @@
                             "paramType": "form",
                             "required": false,
                             "type": "array",
-                            "items": { "type": "object" }
+                            "items": {
+                                "type": "object"
+                            }
                         },
                         {
                             "allowMultiple": false,
@@ -112,7 +106,9 @@
                             "paramType": "query",
                             "required": false,
                             "type": "array",
-                            "items": { "type": "object" }
+                            "items": {
+                                "type": "object"
+                            }
                         },
                         {
                             "allowMultiple": false,
@@ -178,14 +174,10 @@
                     "method": "GET",
                     "nickname": "GET--version-runs--run_id--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": "A run ID",
@@ -201,7 +193,9 @@
                             "paramType": "query",
                             "required": false,
                             "type": "array",
-                            "items": { "type": "object" }
+                            "items": {
+                                "type": "object"
+                            }
                         }
                     ],
                     "summary": "Get a specific run",
@@ -211,14 +205,10 @@
                     "method": "DELETE",
                     "nickname": "DELETE--version-runs--run_id--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": "A run ID",
@@ -234,7 +224,9 @@
                             "paramType": "query",
                             "required": false,
                             "type": "array",
-                            "items": { "type": "object" }
+                            "items": {
+                                "type": "object"
+                            }
                         }
                     ],
                     "summary": "Abort a run",
@@ -249,14 +241,10 @@
                     "method": "GET",
                     "nickname": "GET--version-runs--run_id-tests--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": "A run ID",
@@ -272,7 +260,9 @@
                             "paramType": "query",
                             "required": false,
                             "type": "array",
-                            "items": { "type": "object" }
+                            "items": {
+                                "type": "object"
+                            }
                         },
                         {
                             "allowMultiple": false,
@@ -299,7 +289,9 @@
                             "paramType": "query",
                             "required": false,
                             "type": "array",
-                            "items": { "type": "object" }
+                            "items": {
+                                "type": "object"
+                            }
                         },
                         {
                             "allowMultiple": false,
@@ -367,14 +359,10 @@
                     "method": "GET",
                     "nickname": "GET--version-runs--run_id-tests--test_id--json-",
                     "notes": "",
+                    "authorizations": {
+                        "apiKey": []
+                    },
                     "parameters": [
-                        {
-                            "description": "Client API token",
-                            "name": "CLIENT_TOKEN",
-                            "paramType": "header",
-                            "required": true,
-                            "type": "string"
-                        },
                         {
                             "allowMultiple": false,
                             "description": "A run ID",
@@ -398,7 +386,9 @@
                             "paramType": "query",
                             "required": false,
                             "type": "array",
-                            "items": { "type": "object" }
+                            "items": {
+                                "type": "object"
+                            }
                         }
                     ],
                     "summary": "Get a specific test from a run",
