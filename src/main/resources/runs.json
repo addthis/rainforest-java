@@ -5,7 +5,7 @@
             "operations": [
                 {
                     "method": "GET",
-                    "nickname": "GET--version-runs--json-",
+                    "nickname": "getRuns",
                     "notes": "",
                     "authorizations": {
                         "apiKey": []
@@ -39,7 +39,10 @@
                         }
                     ],
                     "summary": "Get a list of all runs for a particular environment",
-                    "type": "void"
+                    "type": "array",
+                    "items": {
+                        "$ref": "Run"
+                    }
                 },
                 {
                     "method": "POST",
@@ -402,6 +405,174 @@
     "produces": [
         "application/json"
     ],
+    "models": {
+        "Run": {
+            "id": "Run",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "environment": {
+                    "$ref": "Environment"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "state_details": {
+                    "$ref": "StateDetails"
+                },
+                "current_progress": {
+                    "$ref": "Progress"
+                },
+                "timestamps": {
+                    "$ref": "TimeStamps"
+                },
+                "stats": {
+                    "$ref": "Stats"
+                },
+                "browsers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "Browser"
+                    }
+                },
+                "filters" : {
+                    "$ref": "Filter"
+                },
+                "log_url": {
+                    "type": "string"
+                },
+                "description":{
+                    "type": "string"
+                },
+                "real_cost_to_run": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "frontend_url": {
+                    "type": "string"
+                },
+                "total_tests": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "total_passed_tests": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "total_failed_tests": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "total_no_result_tests": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "sample_test_titles": {
+                    "type": "array",
+                    "items": "string"
+                }
+            }
+        },
+        "StateDetails": {
+            "id": "StateDetails",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "is_final_state": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "Progress": {
+            "id": "Progress",
+            "properties": {
+                "percent": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "total": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "complete": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "eta": {
+                    "$ref": "Eta"
+                },
+                "no_result": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "passed": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "failed": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            }
+        },
+        "Eta": {
+            "id": "Eta",
+            "properties": {
+                "seconds": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "ts": {
+                    "type": "date"
+                }
+            }
+        },
+        "TimeStamps": {
+            "id": "TimeStamps",
+            "properties": {
+                "in_progress": {
+                    "type": "date"
+                },
+                "validating": {
+                    "type": "date"
+                },
+                "created_at": {
+                    "type": "date"
+                }
+            }
+        },
+        "Stats": {
+            "id": "TimeStamps",
+            "properties": {
+                "total_time_for_one_person": {
+                    "type": "double"
+                },
+                "total_time_for_rainforest": {
+                    "type": "double"
+                },
+                "total_rainforest_overhead": {
+                    "type": "double"
+                },
+                "speed_up": {
+                    "type": "double"
+                }
+            }
+        },
+        "Filter": {
+            "id": "Filter",
+            "properties": {
+                "tests": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    },
     "resourcePath": "/runs",
     "swaggerVersion": "1.2"
 }

@@ -642,23 +642,6 @@
                 "start_uri"
             ]
         },
-        "Browser": {
-            "id": "Browser",
-            "properties": {
-                "name": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "category": {
-                    "type": "string"
-                },
-                "state": {
-                    "type": "string"
-                }
-            }
-        },
         "TestElement": {
             "id": "TestElement",
             "properties": {

@@ -13,7 +13,10 @@
                     "parameters": [
                     ],
                     "summary": "List environments",
-                    "type": "void"
+                    "type": "array",
+                    "items": {
+                        "$ref" : "Environment"
+                    }
                 },
                 {
                     "method": "POST",
@@ -197,6 +200,72 @@
     "produces": [
         "application/json"
     ],
+    "models": {
+        "Environment": {
+            "id": "Environment",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "default": {
+                    "type": "boolean"
+                },
+                "webhook": {
+                    "type": "string"
+                },
+                "webhook_enabled": {
+                    "type": "boolean"
+                },
+                "site_environments": {
+                    "type": "array",
+                    "items" : {
+                        "$ref": "SiteEnvironment"
+                    }
+                }
+            }
+        },
+        "SiteEnvironment" : {
+            "id": "SiteEnvironment",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "site_id": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "environment_id": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "url": {
+                    "type": "string"
+                }
+            }
+        },
+        "Browser": {
+            "id": "Browser",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "category": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                }
+            }
+        }
+    },
     "resourcePath": "/environments",
     "swaggerVersion": "1.2"
 }
