@@ -59,6 +59,7 @@
         }
     ],
     "info": {
+        "title": "Rainforest API",
         "description": "Nearly all interactions done on the Rainforest App can be done in the API as well. <br/><br/>Find your API Token on the <a href=\"https://app.rainforestqa.com/settings/integrations\">integration settings</a> page."
     },
     "produces": [

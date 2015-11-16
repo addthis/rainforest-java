@@ -46,11 +46,14 @@
                 },
                 {
                     "method": "POST",
-                    "nickname": "POST--version-runs--json-",
+                    "nickname": "createRun",
                     "notes": "",
                     "authorizations": {
                         "apiKey": []
                     },
+                    "consumes": [
+                        "application/x-www-form-urlencoded"
+                    ],
                     "parameters": [
                         {
                             "allowMultiple": false,
@@ -166,7 +169,7 @@
                         }
                     ],
                     "summary": "Start a new run for this particular environment.",
-                    "type": "void"
+                    "$ref": "Run"
                 }
             ],
             "path": "/1/runs.{format}"
@@ -437,13 +440,13 @@
                         "$ref": "Browser"
                     }
                 },
-                "filters" : {
+                "filters": {
                     "$ref": "Filter"
                 },
                 "log_url": {
                     "type": "string"
                 },
-                "description":{
+                "description": {
                     "type": "string"
                 },
                 "real_cost_to_run": {
@@ -471,7 +474,9 @@
                 },
                 "sample_test_titles": {
                     "type": "array",
-                    "items": "string"
+                    "items": {
+                        "type": "string"
+                    }
                 }
             }
         },
