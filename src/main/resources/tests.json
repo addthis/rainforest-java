@@ -636,6 +636,32 @@
                 "title": {
                     "description": "Title of your test",
                     "type": "string"
+                },
+                "result": {
+                    "description": "Last result of your test",
+                    "type": "string"
+                },
+                "has_been_dry_run": {
+                    "type": "boolean"
+                },
+                "quality": {
+                    "type": "string"
+                },
+                "deleted": {
+                    "type": "boolean"
+                },
+                "deletable": {
+                    "type": "boolean"
+                },
+                "editable": {
+                    "type": "boolean"
+                },
+                "step_count": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "last_run": {
+                    "$ref": "Run"
                 }
             },
             "required": [
