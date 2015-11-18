@@ -20,7 +20,7 @@ public class GeneratorUtil {
      * @return the id if found, null if not
      */
     public static Long findColumnId(final Generator generator, final String columnName) {
-        for (final Column column : generator.getData()) {
+        for (final Column column : generator.getColumns()) {
             if (columnName.equals(column.getName())) {
                 return column.getId();
             }
