@@ -1,0 +1,29 @@
+# Rainforest Java
+
+## What's this?
+
+This is a java client for the RainforestQA REST APIs. See https://app.rainforestqa.com/docs for the API documentation.
+
+## Building
+
+`rainforest-java` uses [Apache Maven](http://maven.apache.org/) which it is beyond
+the scope to detail.  The super simple quick start is:
+
+`mvn install`
+
+## Use
+
+```xml
+<dependency>
+    <groupId>com.addthis.rainforest</groupId>
+    <artifactId>rainforest-java</artifactId>
+    <version>latest-and-greatest</version>
+</dependency>
+```
+
+This is not currently pushed to maven central.
+
+### License
+
+rainforest-java is released under the Apache License Version 2.0.  See
+[Apache](http://www.apache.org/licenses/LICENSE-2.0) or the LICENSE for details.
